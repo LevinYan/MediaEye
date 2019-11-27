@@ -11,8 +11,6 @@
 		558F999B238E1A6800D8DCE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F999A238E1A6800D8DCE1 /* ViewController.swift */; };
 		558F999D238E1A6A00D8DCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F999C238E1A6A00D8DCE1 /* Assets.xcassets */; };
 		558F99A0238E1A6A00D8DCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558F999E238E1A6A00D8DCE1 /* Main.storyboard */; };
-		558F99A9238E1A7700D8DCE1 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F99A8238E1A7700D8DCE1 /* SDL2.framework */; };
-		558F99AB238E1AAD00D8DCE1 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 558F99A8238E1A7700D8DCE1 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		558F9A3D238E4B4000D8DCE1 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F9A37238E4B4000D8DCE1 /* libavutil.a */; };
 		558F9A3E238E4B4000D8DCE1 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F9A38238E4B4000D8DCE1 /* libavfilter.a */; };
 		558F9A3F238E4B4000D8DCE1 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F9A39238E4B4000D8DCE1 /* libavcodec.a */; };
@@ -21,6 +19,9 @@
 		558F9A42238E4B4000D8DCE1 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F9A3C238E4B4000D8DCE1 /* libswscale.a */; };
 		558F9A52238E7CF400D8DCE1 /* ffplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 558F9A51238E7CF400D8DCE1 /* ffplay.c */; };
 		55E7A81A238E9B0C00E09F55 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A819238E9B0C00E09F55 /* libavdevice.a */; };
+		55E7A822238EA6AD00E09F55 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; };
+		55E7A823238EA6B500E09F55 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55E7A826238EA71000E09F55 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A825238EA71000E09F55 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				558F99AB238E1AAD00D8DCE1 /* SDL2.framework in CopyFiles */,
+				55E7A823238EA6B500E09F55 /* SDL2.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,7 +45,6 @@
 		558F999F238E1A6A00D8DCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		558F99A1238E1A6A00D8DCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558F99A2238E1A6A00D8DCE1 /* MediaEye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediaEye.entitlements; sourceTree = "<group>"; };
-		558F99A8238E1A7700D8DCE1 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		558F99AF238E4B4000D8DCE1 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		558F99B0238E4B4000D8DCE1 /* buffersrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffersrc.h; sourceTree = "<group>"; };
 		558F99B1238E4B4000D8DCE1 /* buffersink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffersink.h; sourceTree = "<group>"; };
@@ -174,11 +174,12 @@
 		558F9A3A238E4B4000D8DCE1 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
 		558F9A3B238E4B4000D8DCE1 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		558F9A3C238E4B4000D8DCE1 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
-		558F9A50238E7CF300D8DCE1 /* MediaEye-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MediaEye-Bridging-Header.h"; sourceTree = "<group>"; };
 		558F9A51238E7CF400D8DCE1 /* ffplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffplay.c; sourceTree = "<group>"; };
 		55E7A819238E9B0C00E09F55 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
 		55E7A81C238E9B6500E09F55 /* avdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avdevice.h; sourceTree = "<group>"; };
 		55E7A81D238E9B7100E09F55 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		55E7A821238EA6AD00E09F55 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
+		55E7A825238EA71000E09F55 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,14 +187,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E7A826238EA71000E09F55 /* libz.tbd in Frameworks */,
 				558F9A3E238E4B4000D8DCE1 /* libavfilter.a in Frameworks */,
 				558F9A42238E4B4000D8DCE1 /* libswscale.a in Frameworks */,
 				55E7A81A238E9B0C00E09F55 /* libavdevice.a in Frameworks */,
 				558F9A3D238E4B4000D8DCE1 /* libavutil.a in Frameworks */,
-				558F99A9238E1A7700D8DCE1 /* SDL2.framework in Frameworks */,
 				558F9A40238E4B4000D8DCE1 /* libavformat.a in Frameworks */,
 				558F9A41238E4B4000D8DCE1 /* libswresample.a in Frameworks */,
 				558F9A3F238E4B4000D8DCE1 /* libavcodec.a in Frameworks */,
+				55E7A822238EA6AD00E09F55 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +207,7 @@
 			children = (
 				558F9997238E1A6800D8DCE1 /* MediaEye */,
 				558F9996238E1A6800D8DCE1 /* Products */,
+				55E7A824238EA71000E09F55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,12 +222,11 @@
 		558F9997238E1A6800D8DCE1 /* MediaEye */ = {
 			isa = PBXGroup;
 			children = (
+				55E7A821238EA6AD00E09F55 /* SDL2.framework */,
 				558F9A4F238E7CE200D8DCE1 /* Player */,
 				558F99AC238E4B4000D8DCE1 /* ffmpeg */,
-				558F99A8238E1A7700D8DCE1 /* SDL2.framework */,
 				558F9998238E1A6800D8DCE1 /* AppDelegate.swift */,
 				558F999A238E1A6800D8DCE1 /* ViewController.swift */,
-				558F9A50238E7CF300D8DCE1 /* MediaEye-Bridging-Header.h */,
 				558F999C238E1A6A00D8DCE1 /* Assets.xcassets */,
 				558F999E238E1A6A00D8DCE1 /* Main.storyboard */,
 				558F99A1238E1A6A00D8DCE1 /* Info.plist */,
@@ -508,6 +510,14 @@
 			path = libavdevice;
 			sourceTree = "<group>";
 		};
+		55E7A824238EA71000E09F55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55E7A825238EA71000E09F55 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -724,9 +734,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediaEye/ffmpeg/include/**",
-					"$(PROJECT_DIR)/MediaEye/SDL2",
+					"$(PROJECT_DIR)/MediaEye",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2.framework/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MediaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -735,18 +745,16 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediaEye/ffmpeg/lib",
-					"$(PROJECT_DIR)/MediaEye/SDL2/**",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = None.MediaEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MediaEye/Player/MediaEye-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2/**";
-				USER_HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/MediaEye/**",
-					"$(PROJECT_DIR)/MediaEye/SDL2/**",
-				);
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2.framework/**";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/**";
 			};
 			name = Debug;
 		};
@@ -761,9 +769,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediaEye/ffmpeg/include/**",
-					"$(PROJECT_DIR)/MediaEye/SDL2",
+					"$(PROJECT_DIR)/MediaEye",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2.framework/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MediaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -772,17 +780,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MediaEye/ffmpeg/lib",
-					"$(PROJECT_DIR)/MediaEye/SDL2/**",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = None.MediaEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MediaEye/Player/MediaEye-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2/**";
-				USER_HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/MediaEye/**",
-					"$(PROJECT_DIR)/MediaEye/SDL2/**",
-				);
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2.framework/**";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/**";
 			};
 			name = Release;
 		};
