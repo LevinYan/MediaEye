@@ -11,7 +11,22 @@
 		558F999B238E1A6800D8DCE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F999A238E1A6800D8DCE1 /* ViewController.swift */; };
 		558F999D238E1A6A00D8DCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F999C238E1A6A00D8DCE1 /* Assets.xcassets */; };
 		558F99A0238E1A6A00D8DCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558F999E238E1A6A00D8DCE1 /* Main.storyboard */; };
+		558F99A9238E1A7700D8DCE1 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558F99A8238E1A7700D8DCE1 /* SDL2.framework */; };
+		558F99AB238E1AAD00D8DCE1 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 558F99A8238E1A7700D8DCE1 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		558F99AA238E1AA500D8DCE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				558F99AB238E1AAD00D8DCE1 /* SDL2.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		558F9995238E1A6800D8DCE1 /* MediaEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +36,7 @@
 		558F999F238E1A6A00D8DCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		558F99A1238E1A6A00D8DCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558F99A2238E1A6A00D8DCE1 /* MediaEye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediaEye.entitlements; sourceTree = "<group>"; };
+		558F99A8238E1A7700D8DCE1 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558F99A9238E1A7700D8DCE1 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +70,7 @@
 		558F9997238E1A6800D8DCE1 /* MediaEye */ = {
 			isa = PBXGroup;
 			children = (
+				558F99A8238E1A7700D8DCE1 /* SDL2.framework */,
 				558F9998238E1A6800D8DCE1 /* AppDelegate.swift */,
 				558F999A238E1A6800D8DCE1 /* ViewController.swift */,
 				558F999C238E1A6A00D8DCE1 /* Assets.xcassets */,
@@ -73,6 +91,7 @@
 				558F9991238E1A6800D8DCE1 /* Sources */,
 				558F9992238E1A6800D8DCE1 /* Frameworks */,
 				558F9993238E1A6800D8DCE1 /* Resources */,
+				558F99AA238E1AA500D8DCE1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -272,6 +291,10 @@
 				CODE_SIGN_ENTITLEMENTS = MediaEye/MediaEye.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MediaEye",
+				);
 				INFOPLIST_FILE = MediaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,6 +313,10 @@
 				CODE_SIGN_ENTITLEMENTS = MediaEye/MediaEye.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MediaEye",
+				);
 				INFOPLIST_FILE = MediaEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
