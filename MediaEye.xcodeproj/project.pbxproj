@@ -22,6 +22,9 @@
 		55E7A822238EA6AD00E09F55 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; };
 		55E7A823238EA6B500E09F55 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55E7A826238EA71000E09F55 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A825238EA71000E09F55 /* libz.tbd */; };
+		55E7A854238FF1AC00E09F55 /* 1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A852238FCAB900E09F55 /* 1.MP4 */; };
+		55E7A856238FF25100E09F55 /* B.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A855238FF25100E09F55 /* B.MP4 */; };
+		55E7A859238FF50C00E09F55 /* test.flv in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A858238FF50C00E09F55 /* test.flv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -180,6 +183,11 @@
 		55E7A81D238E9B7100E09F55 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		55E7A821238EA6AD00E09F55 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		55E7A825238EA71000E09F55 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		55E7A836238F765600E09F55 /* ffplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffplay.h; sourceTree = "<group>"; };
+		55E7A852238FCAB900E09F55 /* 1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.MP4; sourceTree = "<group>"; };
+		55E7A853238FCB4C00E09F55 /* Swift-Objective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Objective.h"; sourceTree = "<group>"; };
+		55E7A855238FF25100E09F55 /* B.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = B.MP4; sourceTree = "<group>"; };
+		55E7A858238FF50C00E09F55 /* test.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.flv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +230,10 @@
 		558F9997238E1A6800D8DCE1 /* MediaEye */ = {
 			isa = PBXGroup;
 			children = (
+				55E7A858238FF50C00E09F55 /* test.flv */,
+				55E7A853238FCB4C00E09F55 /* Swift-Objective.h */,
+				55E7A855238FF25100E09F55 /* B.MP4 */,
+				55E7A852238FCAB900E09F55 /* 1.MP4 */,
 				55E7A821238EA6AD00E09F55 /* SDL2.framework */,
 				558F9A4F238E7CE200D8DCE1 /* Player */,
 				558F99AC238E4B4000D8DCE1 /* ffmpeg */,
@@ -497,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				558F9A51238E7CF400D8DCE1 /* ffplay.c */,
+				55E7A836238F765600E09F55 /* ffplay.h */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -578,7 +591,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E7A854238FF1AC00E09F55 /* 1.MP4 in Resources */,
 				558F999D238E1A6A00D8DCE1 /* Assets.xcassets in Resources */,
+				55E7A856238FF25100E09F55 /* B.MP4 in Resources */,
+				55E7A859238FF50C00E09F55 /* test.flv in Resources */,
 				558F99A0238E1A6A00D8DCE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,8 +764,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = None.MediaEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MediaEye/Swift-Objective.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
@@ -783,8 +798,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = None.MediaEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MediaEye/Swift-Objective.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MediaEye/SDL2.framework/**";

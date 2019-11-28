@@ -3850,7 +3850,7 @@ static int lockmgr(void **mtx, enum AVLockOp op)
 }
 
 /* Called from the main */
-int start(int argc, char **argv)
+int play(unsigned char *url)
 {
     int flags;
     VideoState *is;
@@ -3878,7 +3878,7 @@ int start(int argc, char **argv)
 //    show_banner(argc, argv, options);
 
 //    parse_options(NULL, argc, argv, options, opt_input_file);
-
+    input_filename = url;
     if (!input_filename) {
         show_usage();
         av_log(NULL, AV_LOG_FATAL, "An input file must be specified\n");
