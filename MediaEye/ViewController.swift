@@ -10,11 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var fileUrl: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
-        play(fileUrl?.toUnsafePointer())
+//        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
+//        play(fileUrl?.toUnsafePointer())
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +25,20 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func openFile(_ sender: Any) {
+        
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.begin { (result) -> Void in
+            if result == NSApplication.ModalResponse.OK {
+                self.fileUrl.stringValue = openPanel.url?.absoluteString ?? ""
+            }
+        }
+    }
+    
 }
 
 extension String {
