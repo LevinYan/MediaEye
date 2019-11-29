@@ -13,7 +13,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fileUrl = Bundle.main.path(forResource: "test", ofType: "flv")
+        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
         play(fileUrl?.toUnsafePointer())
         // Do any additional setup after loading the view.
     }
