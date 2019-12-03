@@ -700,14 +700,14 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="-223" y="165"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MediaEye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="543" height="332"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wC3-FV-DrO">
@@ -729,7 +729,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZF-go-aXp">
-                                <rect key="frame" x="383" y="198" width="67" height="32"/>
+                                <rect key="frame" x="383" y="260" width="67" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0bF-ym-LD6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -739,15 +739,37 @@
                                     <action selector="openFile:" target="XfG-lQ-9wD" id="bkD-98-ezu"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-gF-05a">
+                                <rect key="frame" x="25" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="H7s-1f-z9F"/>
+                                    <constraint firstAttribute="width" constant="40" id="sjK-iN-7hD"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fpn-vx-hJY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="play:" target="XfG-lQ-9wD" id="VYS-ei-poU"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="aHx-gF-05a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="vz7-73-yJa"/>
+                            <constraint firstAttribute="bottom" secondItem="aHx-gF-05a" secondAttribute="bottom" constant="20" id="yaO-dY-beA"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="fileUrl" destination="wC3-FV-DrO" id="Wbh-i0-OJo"/>
+                        <outlet property="playButton" destination="aHx-gF-05a" id="pqe-Lo-fED"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-223" y="622"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="200" height="200"/>
+    </resources>
 </document>

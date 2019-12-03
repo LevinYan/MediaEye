@@ -3850,7 +3850,7 @@ static int lockmgr(void **mtx, enum AVLockOp op)
 }
 
 /* Called from the main */
-int play(unsigned char *url)
+int FFP_play(unsigned char *url)
 {
     int flags;
     VideoState *is;

@@ -9,6 +9,6 @@
 #ifndef ffplay_h
 #define ffplay_h
 
-int play(unsigned char *url);
+int FFP_play(unsigned char *url);
 
 #endif /* ffplay_h */

@@ -11,11 +11,11 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var fileUrl: NSTextField!
+    @IBOutlet weak var playButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
-//        play(fileUrl?.toUnsafePointer())
+
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +39,11 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func play(_ sender: Any) {
+        
+        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
+        FFP_play(fileUrl?.toUnsafePointer())
+    }
 }
 
 extension String {
