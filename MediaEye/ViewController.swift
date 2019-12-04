@@ -12,6 +12,9 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var fileUrl: NSTextField!
     @IBOutlet weak var playButton: NSButton!
+    @IBOutlet weak var progress: NSProgressIndicator!
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,8 +44,19 @@ class ViewController: NSViewController {
     
     @IBAction func play(_ sender: Any) {
         
-        let fileUrl = Bundle.main.path(forResource: "1", ofType: "MP4")
+        let fileUrl = Bundle.main.path(forResource: "test", ofType: "flv")
         FFP_play(fileUrl?.toUnsafePointer())
+
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
+            self.updateProgress()
+            FFP_eventLoop()
+
+        }
+        print("timer")
+    }
+    func updateProgress() {
+        
+        progress.doubleValue = Double(FFP_progress()*100);
     }
 }
 

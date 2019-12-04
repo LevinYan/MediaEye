@@ -753,8 +753,30 @@
                                     <action selector="play:" target="XfG-lQ-9wD" id="VYS-ei-poU"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DOf-IH-X12">
+                                <rect key="frame" x="83" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IBx-fL-X6X"/>
+                                    <constraint firstAttribute="width" constant="40" id="nuX-Xc-bQS"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="restart" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Ze-tJ-zyv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="play:" target="XfG-lQ-9wD" id="FtK-hw-5lq"/>
+                                </connections>
+                            </button>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
+                                <rect key="frame" x="150" y="30" width="359" height="20"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="dXe-vV-cLU" firstAttribute="leading" secondItem="DOf-IH-X12" secondAttribute="trailing" constant="27" id="DbD-GI-oID"/>
+                            <constraint firstAttribute="bottom" secondItem="dXe-vV-cLU" secondAttribute="bottom" constant="31" id="Vqe-SV-zqZ"/>
+                            <constraint firstAttribute="bottom" secondItem="DOf-IH-X12" secondAttribute="bottom" constant="20" id="cqT-LW-P6A"/>
+                            <constraint firstAttribute="trailing" secondItem="dXe-vV-cLU" secondAttribute="trailing" constant="34" id="gXL-nb-usf"/>
+                            <constraint firstItem="DOf-IH-X12" firstAttribute="leading" secondItem="aHx-gF-05a" secondAttribute="trailing" constant="18" id="kQF-fS-3Wg"/>
                             <constraint firstItem="aHx-gF-05a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="vz7-73-yJa"/>
                             <constraint firstAttribute="bottom" secondItem="aHx-gF-05a" secondAttribute="bottom" constant="20" id="yaO-dY-beA"/>
                         </constraints>
@@ -762,14 +784,16 @@
                     <connections>
                         <outlet property="fileUrl" destination="wC3-FV-DrO" id="Wbh-i0-OJo"/>
                         <outlet property="playButton" destination="aHx-gF-05a" id="pqe-Lo-fED"/>
+                        <outlet property="progress" destination="dXe-vV-cLU" id="dtE-2g-g5g"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223" y="622"/>
+            <point key="canvasLocation" x="-223.5" y="622"/>
         </scene>
     </scenes>
     <resources>
         <image name="play" width="200" height="200"/>
+        <image name="restart" width="200" height="200"/>
     </resources>
 </document>

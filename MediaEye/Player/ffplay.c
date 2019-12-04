@@ -108,6 +108,9 @@ const int program_birth_year = 2003;
 #define USE_ONEPASS_SUBTITLE_RENDER 1
 
 
+#define fftime_to_milliseconds(ts) (av_rescale(ts, 1000, AV_TIME_BASE))
+#define milliseconds_to_fftime(ms) (av_rescale(ms, AV_TIME_BASE, 1000))
+
 typedef struct OptionDef {
     const char *name;
     int flags;
@@ -141,8 +144,8 @@ typedef struct OptionDef {
 } OptionDef;
 static unsigned sws_flags = SWS_BICUBIC;
 struct SwsContext *sws_opts;
-static SwrContext *swr_opts;
-static AVDictionary *format_opts, *codec_opts, *sws_dict;
+//static SwrContext *swr_opts;
+static AVDictionary *format_opts,*sws_dict, *codec_opts;
 typedef struct MyAVPacketList {
     AVPacket pkt;
     struct MyAVPacketList *next;
@@ -341,6 +344,7 @@ typedef struct VideoState {
 } VideoState;
 
 /* options specified by the user */
+static VideoState *currentIs;
 static AVInputFormat *file_iformat;
 static const char *input_filename;
 static const char *window_title;
@@ -1529,8 +1533,7 @@ static int video_open(VideoState *is)
 /* display the current picture, if any */
 static void video_display(VideoState *is)
 {
-    if (!window)
-        video_open(is);
+   
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
@@ -3382,24 +3385,18 @@ static void toggle_audio_display(VideoState *is)
         is->show_mode = next;
     }
 }
-
-static void refresh_loop_wait_event(VideoState *is, SDL_Event *event) {
+static int refresh_thread(void *arg)
+{
+    VideoState *is = currentIs;
     double remaining_time = 0.0;
-    SDL_PumpEvents();
-    while (!SDL_PeepEvents(event, 1, SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT)) {
-        if (!cursor_hidden && av_gettime_relative() - cursor_last_shown > CURSOR_HIDE_DELAY) {
-            SDL_ShowCursor(0);
-            cursor_hidden = 1;
+      while (1) {
+            if (remaining_time > 0.0)
+                av_usleep((unsigned)(remaining_time * 1000000.0));
+            remaining_time = REFRESH_RATE;
+            if (is->show_mode != SHOW_MODE_NONE && (!is->paused || is->force_refresh))
+                video_refresh(is, &remaining_time);
         }
-        if (remaining_time > 0.0)
-            av_usleep((int64_t)(remaining_time * 1000000.0));
-        remaining_time = REFRESH_RATE;
-        if (is->show_mode != SHOW_MODE_NONE && (!is->paused || is->force_refresh))
-            video_refresh(is, &remaining_time);
-        SDL_PumpEvents();
-    }
 }
-
 static void seek_chapter(VideoState *is, int incr)
 {
     int64_t pos = get_master_clock(is) * AV_TIME_BASE;
@@ -3426,6 +3423,26 @@ static void seek_chapter(VideoState *is, int incr)
     stream_seek(is, av_rescale_q(is->ic->chapters[i]->start, is->ic->chapters[i]->time_base,
                                  AV_TIME_BASE_Q), 0, 0);
 }
+void FFP_pause()
+{
+    toggle_pause(currentIs);
+}
+void FFP_stop()
+{
+    
+}
+int64_t FFP_duration()
+{
+    return currentIs == NULL || currentIs->ic == NULL ? 0: fftime_to_milliseconds(currentIs->ic->duration) ;
+}
+float FFP_progress()
+{
+    int64_t duration = FFP_duration();
+    if(duration == 0)
+        return 0;
+    
+    return get_master_clock(currentIs)*1000/FFP_duration();
+}
 
 /* handle an event sent by the GUI */
 static void event_loop(VideoState *cur_stream)
@@ -3433,9 +3450,9 @@ static void event_loop(VideoState *cur_stream)
     SDL_Event event;
     double incr, pos, frac;
 
-    for (;;) {
-        double x;
-        refresh_loop_wait_event(cur_stream, &event);
+    double x;
+    if(SDL_PollEvent(&event))
+    {
         switch (event.type) {
         case SDL_KEYDOWN:
             if (exit_on_keydown) {
@@ -3627,7 +3644,10 @@ static void event_loop(VideoState *cur_stream)
         }
     }
 }
-
+void FFP_eventLoop()
+{
+    event_loop(currentIs);
+}
 static int opt_frame_size(void *optctx, const char *opt, const char *arg)
 {
     av_log(NULL, AV_LOG_WARNING, "Option -s is deprecated, use -video_size.\n");
@@ -3923,8 +3943,11 @@ int FFP_play(unsigned char *url)
         av_log(NULL, AV_LOG_FATAL, "Failed to initialize VideoState!\n");
         do_exit(NULL);
     }
-
-    event_loop(is);
+    if (!window)
+           video_open(is);
+    
+    currentIs = is;
+    SDL_CreateThread(refresh_thread, "read_thread", NULL);
 
     /* never returns */
 
