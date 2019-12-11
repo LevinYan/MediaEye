@@ -20,6 +20,8 @@ typedef enum FFP_State {
 typedef enum FFP_Event{
     
     FFP_Event_State = 0,
+    FFP_Event_PushPacket,
+    FFP_Event_PushFrame,
     
 }FFP_Event;
     

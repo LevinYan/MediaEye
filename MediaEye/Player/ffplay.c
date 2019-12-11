@@ -55,7 +55,7 @@
 
 #include <SDL.h>
 #include <SDL_thread.h>
-
+#include "ffplay.h"
 //#include "cmdutils.h"
 
 #include <assert.h>
@@ -162,7 +162,7 @@ typedef struct PacketQueue {
     SDL_mutex *mutex;
     SDL_cond *cond;
 } PacketQueue;
-
+static notifyFunc callback;
 #define VIDEO_PICTURE_QUEUE_SIZE 3
 #define SUBPICTURE_QUEUE_SIZE 16
 #define SAMPLE_QUEUE_SIZE 9
@@ -614,6 +614,10 @@ static int packet_queue_put_private(PacketQueue *q, AVPacket *pkt)
     q->duration += pkt1->pkt.duration;
     /* XXX: should duplicate packet data in DV case */
     SDL_CondSignal(q->cond);
+    
+    if (callback){
+        callback(FFP_Event_PushPacket, pkt);
+    }
     return 0;
 }
 
@@ -935,7 +939,9 @@ static Frame *frame_queue_peek_readable(FrameQueue *f)
     if (f->pktq->abort_request)
         return NULL;
 
-    return &f->queue[(f->rindex + f->rindex_shown) % f->max_size];
+    Frame *frame = &f->queue[(f->rindex + f->rindex_shown) % f->max_size];
+    callback(FFP_Event_PushFrame, frame);
+    return frame;
 }
 
 static void frame_queue_push(FrameQueue *f)
@@ -3952,4 +3958,8 @@ int FFP_play(unsigned char *url)
     /* never returns */
 
     return 0;
+}
+void FFP_eventNotify(notifyFunc func)
+{
+    callback = func;
 }

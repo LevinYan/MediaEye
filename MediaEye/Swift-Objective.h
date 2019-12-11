@@ -10,5 +10,6 @@
 #define Swift_Objective_h
 
 #import "ffplay.h"
+#include "libavcodec/avcodec.h"
 
 #endif /* Swift_Objective_h */

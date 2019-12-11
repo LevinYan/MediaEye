@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553D179423A0E6AD00949B83 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D179323A0E6AD00949B83 /* Player.swift */; };
 		558F9999238E1A6800D8DCE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F9998238E1A6800D8DCE1 /* AppDelegate.swift */; };
 		558F999B238E1A6800D8DCE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F999A238E1A6800D8DCE1 /* ViewController.swift */; };
 		558F999D238E1A6A00D8DCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F999C238E1A6A00D8DCE1 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		553D179323A0E6AD00949B83 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		558F9995238E1A6800D8DCE1 /* MediaEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558F9998238E1A6800D8DCE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		558F999A238E1A6800D8DCE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				558F9A4F238E7CE200D8DCE1 /* Player */,
 				558F9998238E1A6800D8DCE1 /* AppDelegate.swift */,
 				558F999A238E1A6800D8DCE1 /* ViewController.swift */,
+				553D179323A0E6AD00949B83 /* Player.swift */,
 				558F999C238E1A6A00D8DCE1 /* Assets.xcassets */,
 				558F999E238E1A6A00D8DCE1 /* Main.storyboard */,
 				558F99A1238E1A6A00D8DCE1 /* Info.plist */,
@@ -665,6 +668,7 @@
 			files = (
 				558F999B238E1A6800D8DCE1 /* ViewController.swift in Sources */,
 				558F9999238E1A6800D8DCE1 /* AppDelegate.swift in Sources */,
+				553D179423A0E6AD00949B83 /* Player.swift in Sources */,
 				558F9A52238E7CF400D8DCE1 /* ffplay.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

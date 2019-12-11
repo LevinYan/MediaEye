@@ -14,11 +14,11 @@ class ViewController: NSViewController {
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var progress: NSProgressIndicator!
     var timer: Timer?
-    
+    var player: Player?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        self.player = Player()
         // Do any additional setup after loading the view.
     }
 
