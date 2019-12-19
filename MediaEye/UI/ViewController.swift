@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 
 class ViewController: NSViewController {
 
@@ -15,10 +16,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var progress: NSProgressIndicator!
     var timer: Timer?
     var player: Player?
+    var framesWindows: NSWindow?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.player = Player()
+        
+        framesWindows = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 400), styleMask: .fullScreen, backing: .buffered, defer: false)
+        framesWindows?.contentViewController = NSStoryboard.loadViewController("FramesViewController")
+        framesWindows?.orderFront(nil)
         // Do any additional setup after loading the view.
     }
 

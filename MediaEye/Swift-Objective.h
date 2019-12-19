@@ -11,5 +11,5 @@
 
 #import "ffplay.h"
 #include "libavcodec/avcodec.h"
-
+#import "PureLayout.h"
 #endif /* Swift_Objective_h */
