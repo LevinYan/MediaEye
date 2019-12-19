@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class FramesViewController: NSViewController, NSTableViewDataSource,NSTableViewDelegate {
+class FramesViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet weak var tableView: NSTableView!
     var frames = [AVFrame]()
@@ -32,8 +32,6 @@ class FramesViewController: NSViewController, NSTableViewDataSource,NSTableViewD
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -46,16 +44,17 @@ class FramesViewController: NSViewController, NSTableViewDataSource,NSTableViewD
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 40
     }
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         let cellIdentify = ["FrameNum", "FrameType", "PFrame", "DTS", "PTS"]
         let colum = tableView.tableColumns.firstIndex(of: tableColumn!)!
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentify[colum]), owner: nil) as? NSTableCellView {
-      
-          return cell
+
+        return cell
         }
         return nil
     }
-    
+
     
 }
