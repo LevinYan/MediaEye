@@ -940,7 +940,7 @@ static Frame *frame_queue_peek_readable(FrameQueue *f)
         return NULL;
 
     Frame *frame = &f->queue[(f->rindex + f->rindex_shown) % f->max_size];
-    callback(FFP_Event_PushFrame, frame);
+    callback(FFP_Event_PushFrame, frame->frame);
     return frame;
 }
 
@@ -3876,7 +3876,7 @@ static int lockmgr(void **mtx, enum AVLockOp op)
 }
 
 /* Called from the main */
-int FFP_play(unsigned char *url)
+int FFP_play(const char *url)
 {
     int flags;
     VideoState *is;
@@ -3962,4 +3962,16 @@ int FFP_play(unsigned char *url)
 void FFP_eventNotify(notifyFunc func)
 {
     callback = func;
+}
+AVStream getVideoStream()
+{
+    AVStream stream;
+    AVFormatContext *ic = currentIs->ic;
+    for (int i = 0; i < ic->nb_streams; i++) {
+        AVStream *st = ic->streams[i];
+        if (st->codecpar->codec_type == AVMEDIA_TYPE_VIDEO)
+           stream = *st;
+      
+    }
+    return stream;
 }

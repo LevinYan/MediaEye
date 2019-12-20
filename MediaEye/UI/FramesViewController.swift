@@ -12,7 +12,7 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
 
     @IBOutlet weak var tableView: NSTableView!
     var frames = [AVFrame]()
-    
+    var player: Player?
 //    var tableView: NSTableView!
     
     public override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
@@ -32,25 +32,63 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(getFrame(notification:)), name: NSNotification.Name(Player.FrameNotification), object: nil)
+
+    }
+    @objc
+    func getFrame(notification: Notification) {
+        
+        if let frame = notification.userInfo?["frame"] as? AVFrame {
+            frames.append(frame)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    @objc
+    func getPacket(notification: Notification) {
+        
     }
     override func viewWillAppear() {
         super.viewWillAppear()
         
     }
     func numberOfRows(in tableView: NSTableView) -> Int {
-//        return frames.count
-        return 100
+        return frames.count
     }
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 40
-    }
+//    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+//        return 40
+//    }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         let cellIdentify = ["FrameNum", "FrameType", "PFrame", "DTS", "PTS"]
         let colum = tableView.tableColumns.firstIndex(of: tableColumn!)!
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentify[colum]), owner: nil) as? NSTableCellView {
+            
+            let frame = frames[row]
+            print("\(frame)")
+            switch colum {
+            case 0:
+                cell.textField?.stringValue = "\(row)"
+            case 1:
+                let types = ["unknow","I","P","B","S","SI","SP","BI"]
+                cell.textField?.stringValue = types[Int(frame.pict_type.rawValue)]
+            case 2:
+                let dts = frame.coded_picture_number
+                cell.textField?.stringValue = "\(dts)"
 
+            case 3:
+                if let timebase = player?.videoStream?.time_base {
+                    let pts = Double(frame.pts)*av_q2d(timebase)
+                    cell.textField?.stringValue = "\(pts)"
+                }
+
+            default: break
+                
+            }
+            
+            
         return cell
         }
         return nil

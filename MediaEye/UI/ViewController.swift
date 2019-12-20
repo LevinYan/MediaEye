@@ -17,15 +17,14 @@ class ViewController: NSViewController {
     var timer: Timer?
     var player: Player?
     var framesWindows: NSWindow?
+    var framewsVc: FramesViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.player = Player()
         
-        framesWindows = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 400), styleMask: .fullScreen, backing: .buffered, defer: false)
-        framesWindows?.contentViewController = NSStoryboard.loadViewController("FramesViewController")
-        framesWindows?.orderFront(nil)
+       
         // Do any additional setup after loading the view.
     }
 
@@ -51,15 +50,21 @@ class ViewController: NSViewController {
     
     @IBAction func play(_ sender: Any) {
         
-        let fileUrl = Bundle.main.path(forResource: "test", ofType: "flv")
-        FFP_play(fileUrl?.toUnsafePointer())
+        let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
+        
+        FFP_play(fileUrl)
 
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             self.updateProgress()
             FFP_eventLoop()
 
         }
-        print("timer")
+        framesWindows = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 400), styleMask: .fullScreen, backing: .buffered, defer: false)
+        framewsVc = NSStoryboard.loadViewController("FramesViewController") as? FramesViewController
+        framesWindows?.contentViewController = framewsVc
+        framesWindows?.orderFront(nil)
+
+        framewsVc?.player = player
     }
     func updateProgress() {
         

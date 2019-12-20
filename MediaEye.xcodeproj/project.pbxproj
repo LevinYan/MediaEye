@@ -13,7 +13,6 @@
 		558F99A0238E1A6A00D8DCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558F999E238E1A6A00D8DCE1 /* Main.storyboard */; };
 		558F9A52238E7CF400D8DCE1 /* ffplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 558F9A51238E7CF400D8DCE1 /* ffplay.c */; };
 		55B611CB23AA62A600D9DEFD /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B611CA23AA62A600D9DEFD /* StoryboardUtil.swift */; };
-		55C4DC5A23AA27FC009B28FD /* FrameTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC5923AA27FC009B28FD /* FrameTableView.swift */; };
 		55C4DC6723AA3E42009B28FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6623AA3E42009B28FD /* ViewController.swift */; };
 		55C4DC6923AA3EF5009B28FD /* FramesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */; };
 		55C4DC6C23AA5464009B28FD /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6B23AA5464009B28FD /* ViewUtil.swift */; };
@@ -79,7 +78,6 @@
 		558F99A2238E1A6A00D8DCE1 /* MediaEye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediaEye.entitlements; sourceTree = "<group>"; };
 		558F9A51238E7CF400D8DCE1 /* ffplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffplay.c; sourceTree = "<group>"; };
 		55B611CA23AA62A600D9DEFD /* StoryboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
-		55C4DC5923AA27FC009B28FD /* FrameTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameTableView.swift; sourceTree = "<group>"; };
 		55C4DC6623AA3E42009B28FD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesViewController.swift; sourceTree = "<group>"; };
 		55C4DC6B23AA5464009B28FD /* ViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 			children = (
 				55C4DC6A23AA5447009B28FD /* Util */,
 				55C4DC6623AA3E42009B28FD /* ViewController.swift */,
-				55C4DC5923AA27FC009B28FD /* FrameTableView.swift */,
 				55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */,
 			);
 			path = UI;
@@ -733,7 +730,6 @@
 			files = (
 				55C4DC6723AA3E42009B28FD /* ViewController.swift in Sources */,
 				55C4DC6C23AA5464009B28FD /* ViewUtil.swift in Sources */,
-				55C4DC5A23AA27FC009B28FD /* FrameTableView.swift in Sources */,
 				55B611CB23AA62A600D9DEFD /* StoryboardUtil.swift in Sources */,
 				55C4DC7723AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m in Sources */,
 				55C4DC7923AA5E06009B28FD /* NSArray+PureLayout.m in Sources */,
