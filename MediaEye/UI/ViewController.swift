@@ -51,9 +51,8 @@ class ViewController: NSViewController {
     @IBAction func play(_ sender: Any) {
         
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
+        player?.play(url: fileUrl!)
         
-        FFP_play(fileUrl)
-
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             self.updateProgress()
             FFP_eventLoop()

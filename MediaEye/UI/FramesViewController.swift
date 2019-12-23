@@ -32,13 +32,14 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(getFrame(notification:)), name: NSNotification.Name(Player.FrameNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getFrame(notification:)), name: NSNotification.Name(Player.VideoFrameNotification), object: nil)
 
     }
     @objc
     func getFrame(notification: Notification) {
         
         if let frame = notification.userInfo?["frame"] as? AVFrame {
+            
             frames.append(frame)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -62,7 +63,7 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cellIdentify = ["FrameNum", "FrameType", "PFrame", "DTS", "PTS"]
+        let cellIdentify = ["FrameNum", "FrameType", "DTS", "PTS"]
         let colum = tableView.tableColumns.firstIndex(of: tableColumn!)!
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentify[colum]), owner: nil) as? NSTableCellView {
             
@@ -81,7 +82,7 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
             case 3:
                 if let timebase = player?.videoStream?.time_base {
                     let pts = Double(frame.pts)*av_q2d(timebase)
-                    cell.textField?.stringValue = "\(pts)"
+                    cell.textField?.stringValue = "\(String(format: "%.2f", pts))"
                 }
 
             default: break

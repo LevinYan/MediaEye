@@ -13,7 +13,7 @@ fileprivate var player: Player?
 
 class Player {
 
-    static let FrameNotification = "FrameNotificaiton"
+    static let VideoFrameNotification = "VideoFrameNotification"
     static let PacketNotification = "PacketNotification"
     var progress: Float {
         
@@ -25,7 +25,8 @@ class Player {
     var audioStream: AVStream?
     
     var packets = [AVPacket]()
-    var frames = [AVFrame]()
+    var videoFrames = [AVFrame]()
+    var audioFrames = [AVFrame]()
     init() {
                 
         player = self
@@ -49,8 +50,14 @@ class Player {
     case FFP_Event_PushFrame:
         
         if let frame = data?.load(as: AVFrame.self) {
-            frames.append(frame)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Player.FrameNotification), object: self, userInfo: ["frame": frame])
+            
+            if frame.width > 0, frame.height > 0 {
+                videoFrames.append(frame)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Player.VideoFrameNotification), object: self, userInfo: ["frame": frame])
+
+            } else if frame.nb_samples > 0 {
+                audioFrames.append(frame)
+            }
 
         }
     default:
