@@ -57,9 +57,9 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
     func numberOfRows(in tableView: NSTableView) -> Int {
         return frames.count
     }
-//    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-//        return 40
-//    }
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 20
+    }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
@@ -67,11 +67,13 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
         let colum = tableView.tableColumns.firstIndex(of: tableColumn!)!
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentify[colum]), owner: nil) as? NSTableCellView {
             
-            let frame = frames[row]
+            let index = frames.count - 1 - row
+            let frame = frames[index]
+            let isKey = frame.pict_type == AV_PICTURE_TYPE_I
             print("\(frame)")
             switch colum {
             case 0:
-                cell.textField?.stringValue = "\(row)"
+                cell.textField?.stringValue = "\(index)"
             case 1:
                 let types = ["unknow","I","P","B","S","SI","SP","BI"]
                 cell.textField?.stringValue = types[Int(frame.pict_type.rawValue)]
@@ -89,7 +91,8 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
                 
             }
             
-            
+            cell.textField?.alignment = .center
+            cell.layer?.backgroundColor = isKey ? NSColor.red.cgColor : NSColor.black.cgColor
         return cell
         }
         return nil

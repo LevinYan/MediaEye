@@ -23,4 +23,24 @@ extension NSView {
             return bounds.size.height
         }
     }
+    var top: CGFloat {
+        get {
+            return frame.origin.y + frame.size.height
+        }
+    }
+    var x: CGFloat {
+       get {
+           return frame.origin.x
+       }
+    }
+    var y: CGFloat {
+        get {
+            return frame.origin.y
+        }
+    }
+    var right: CGFloat {
+        get {
+            return frame.origin.x + frame.size.width
+        }
+    }
 }

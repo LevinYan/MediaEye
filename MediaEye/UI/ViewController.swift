@@ -58,7 +58,7 @@ class ViewController: NSViewController {
             FFP_eventLoop()
 
         }
-        framesWindows = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 400), styleMask: .fullScreen, backing: .buffered, defer: false)
+        framesWindows = NSWindow(contentRect: NSRect(x: self.view.window!.frame.origin.x + self.view.window!.frame.size.width + 100, y: self.view.window!.frame.origin.y, width: 400, height: 600), styleMask: [.borderless, .titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
         framewsVc = NSStoryboard.loadViewController("FramesViewController") as? FramesViewController
         framesWindows?.contentViewController = framewsVc
         framesWindows?.orderFront(nil)
