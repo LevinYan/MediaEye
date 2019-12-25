@@ -679,7 +679,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-288" y="-182"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -707,36 +707,43 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MediaEye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="543" height="332"/>
+                        <rect key="frame" x="0.0" y="0.0" width="543" height="611"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wC3-FV-DrO">
-                                <rect key="frame" x="90" y="207" width="282" height="21"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wC3-FV-DrO">
+                                <rect key="frame" x="88" y="562" width="282" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Mr5-1A-C30">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-Hg-vWW">
-                                <rect key="frame" x="20" y="210" width="47" height="16"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-Hg-vWW">
+                                <rect key="frame" x="23" y="567" width="47" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="输入url" id="CCM-1K-wcr">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZF-go-aXp">
-                                <rect key="frame" x="383" y="260" width="67" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iZF-go-aXp">
+                                <rect key="frame" x="385" y="555" width="67" height="32"/>
                                 <buttonCell key="cell" type="push" title="文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0bF-ym-LD6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openFile:" target="XfG-lQ-9wD" id="bkD-98-ezu"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pDf-Jk-vJw">
+                                <rect key="frame" x="462" y="555" width="67" height="32"/>
+                                <buttonCell key="cell" type="push" title="历史" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zcg-MZ-IKR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openFile:" target="XfG-lQ-9wD" id="YEx-kA-6Ut"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-gF-05a">
@@ -770,26 +777,333 @@
                             <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
                                 <rect key="frame" x="150" y="30" width="359" height="20"/>
                             </progressIndicator>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="gA3-Qx-6Ov" customClass="ParamView" customModule="MediaEye">
+                                <rect key="frame" x="0.0" y="127" width="543" height="407"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-ay-OBe">
+                                        <rect key="frame" x="32" y="371" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="B9j-6G-pSP">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cMJ-YQ-bMz">
+                                        <rect key="frame" x="32" y="340" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="xR2-Pe-CGn">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-42-3CL">
+                                        <rect key="frame" x="100" y="340" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="3GH-5I-2ik">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yDX-KG-N2g">
+                                        <rect key="frame" x="32" y="312" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="时长" id="LKI-QD-Iig">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Co-jf-YTz">
+                                        <rect key="frame" x="32" y="284" width="44" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="比特率" id="zFc-h4-W5G">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BZL-eO-aep">
+                                        <rect key="frame" x="32" y="256" width="64" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="metadata" id="G4I-fa-OrK">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-uH-TyO">
+                                        <rect key="frame" x="100" y="284" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="gUi-hT-qHL">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mTX-bs-gFq">
+                                        <rect key="frame" x="100" y="256" width="64" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="metadata" id="etf-zV-qfe">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhE-rS-a8f">
+                                        <rect key="frame" x="100" y="312" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="Vzk-0z-p5A">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Mi-R0-klz">
+                                        <rect key="frame" x="279" y="371" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="VqD-LT-ogr">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N9Q-yg-yOU">
+                                        <rect key="frame" x="279" y="340" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输出像素" id="fDA-oV-Eot">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AYA-Bi-USQ">
+                                        <rect key="frame" x="347" y="340" width="34" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="pixel" id="kDd-Sz-m9A">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Od4-dH-ed9">
+                                        <rect key="frame" x="279" y="312" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="编码方式" id="tI8-iV-BcJ">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I4V-Pm-wtH">
+                                        <rect key="frame" x="279" y="284" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="帧率" id="p8e-2e-Iik">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KMK-VL-yMh">
+                                        <rect key="frame" x="279" y="256" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="宽高" id="wWm-bD-syb">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-VW-Df0">
+                                        <rect key="frame" x="347" y="284" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="nwQ-iI-u5s">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8e8-om-pKK">
+                                        <rect key="frame" x="347" y="256" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="31K-Gw-gcq">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wr6-vH-1HD">
+                                        <rect key="frame" x="347" y="312" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="cWQ-yC-sKX">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kg3-EM-ZvT">
+                                        <rect key="frame" x="279" y="217" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="Yyx-4m-4eQ">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TWq-wM-emn">
+                                        <rect key="frame" x="279" y="186" width="44" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="采样率" id="ePT-2x-Cco">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6M-TK-qRl">
+                                        <rect key="frame" x="349" y="186" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="ZzB-mn-895">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fol-P7-wtG">
+                                        <rect key="frame" x="279" y="158" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="编码方式" id="JhZ-gK-OUh">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-HG-KrB">
+                                        <rect key="frame" x="279" y="130" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="时长" id="pse-Ke-IIp">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-RL-if2">
+                                        <rect key="frame" x="279" y="102" width="44" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="声道数" id="V9w-lo-Cc7">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-Ix-S1u">
+                                        <rect key="frame" x="349" y="130" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="Ylf-jY-FHn">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Nv-9BR">
+                                        <rect key="frame" x="349" y="102" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="E8W-1Q-mDH">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L6P-Tw-oY4">
+                                        <rect key="frame" x="349" y="158" width="58" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="GHg-gw-c67">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="I4V-Pm-wtH" firstAttribute="leading" secondItem="KMK-VL-yMh" secondAttribute="leading" id="1yB-PD-S5M"/>
+                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="leading" secondItem="kxu-42-3CL" secondAttribute="leading" id="5Va-x2-Ufa"/>
+                                    <constraint firstItem="N9Q-yg-yOU" firstAttribute="leading" secondItem="Od4-dH-ed9" secondAttribute="leading" id="5de-Yc-0K1"/>
+                                    <constraint firstItem="S2j-Ix-S1u" firstAttribute="top" secondItem="Gmu-HG-KrB" secondAttribute="top" id="5gT-bk-Yc8"/>
+                                    <constraint firstItem="KMK-VL-yMh" firstAttribute="top" secondItem="I4V-Pm-wtH" secondAttribute="bottom" constant="12" id="8QG-Qh-k2I"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kxu-42-3CL" secondAttribute="trailing" constant="20" symbolic="YES" id="8gU-aP-Cim"/>
+                                    <constraint firstItem="cMJ-YQ-bMz" firstAttribute="leading" secondItem="yDX-KG-N2g" secondAttribute="leading" id="AqD-mR-UzK"/>
+                                    <constraint firstItem="kg3-EM-ZvT" firstAttribute="leading" secondItem="TWq-wM-emn" secondAttribute="leading" id="B1W-DE-hal"/>
+                                    <constraint firstItem="BhE-rS-a8f" firstAttribute="top" secondItem="yDX-KG-N2g" secondAttribute="top" id="B3s-Wl-MCm"/>
+                                    <constraint firstItem="Jbh-Nv-9BR" firstAttribute="leading" secondItem="w6M-TK-qRl" secondAttribute="leading" id="BWm-U9-lNX"/>
+                                    <constraint firstItem="N9Q-yg-yOU" firstAttribute="top" secondItem="3Mi-R0-klz" secondAttribute="bottom" constant="15" id="C3D-bX-dmj"/>
+                                    <constraint firstItem="kg3-EM-ZvT" firstAttribute="leading" secondItem="KMK-VL-yMh" secondAttribute="leading" id="C8b-eZ-uBA"/>
+                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="top" secondItem="BZL-eO-aep" secondAttribute="top" id="D6p-b0-pjr"/>
+                                    <constraint firstItem="BhE-rS-a8f" firstAttribute="leading" secondItem="kxu-42-3CL" secondAttribute="leading" id="DuB-W8-JP9"/>
+                                    <constraint firstItem="MCY-ay-OBe" firstAttribute="leading" secondItem="cMJ-YQ-bMz" secondAttribute="leading" id="EiL-02-Y7P"/>
+                                    <constraint firstItem="2cf-uH-TyO" firstAttribute="top" secondItem="2Co-jf-YTz" secondAttribute="top" id="Fub-gD-Le0"/>
+                                    <constraint firstItem="uOz-VW-Df0" firstAttribute="top" secondItem="I4V-Pm-wtH" secondAttribute="top" id="GQx-fH-zCd"/>
+                                    <constraint firstItem="cMJ-YQ-bMz" firstAttribute="top" secondItem="MCY-ay-OBe" secondAttribute="bottom" constant="15" id="HKh-R1-gAF"/>
+                                    <constraint firstItem="kxu-42-3CL" firstAttribute="leading" secondItem="cMJ-YQ-bMz" secondAttribute="trailing" constant="14" id="Jqf-jf-Jeu"/>
+                                    <constraint firstAttribute="height" constant="407" id="KPP-me-yWf"/>
+                                    <constraint firstItem="AYA-Bi-USQ" firstAttribute="top" secondItem="N9Q-yg-yOU" secondAttribute="top" id="Kw6-Pp-YQd"/>
+                                    <constraint firstItem="fol-P7-wtG" firstAttribute="top" secondItem="TWq-wM-emn" secondAttribute="bottom" constant="12" id="LsR-YF-MRA"/>
+                                    <constraint firstItem="w6M-TK-qRl" firstAttribute="top" secondItem="TWq-wM-emn" secondAttribute="top" id="MUs-7q-0Mq"/>
+                                    <constraint firstItem="TWq-wM-emn" firstAttribute="leading" secondItem="fol-P7-wtG" secondAttribute="leading" id="Mi3-5E-hAG"/>
+                                    <constraint firstItem="Jbh-Nv-9BR" firstAttribute="top" secondItem="ltD-RL-if2" secondAttribute="top" id="N6C-Q5-2CJ"/>
+                                    <constraint firstItem="w6M-TK-qRl" firstAttribute="leading" secondItem="TWq-wM-emn" secondAttribute="trailing" constant="30" id="ODH-v4-KNM"/>
+                                    <constraint firstItem="S2j-Ix-S1u" firstAttribute="leading" secondItem="w6M-TK-qRl" secondAttribute="leading" id="PdB-c0-wH3"/>
+                                    <constraint firstItem="BZL-eO-aep" firstAttribute="top" secondItem="2Co-jf-YTz" secondAttribute="bottom" constant="12" id="QOf-nK-gwh"/>
+                                    <constraint firstItem="MCY-ay-OBe" firstAttribute="leading" secondItem="gA3-Qx-6Ov" secondAttribute="leading" constant="34" id="Qvm-3Q-hjk"/>
+                                    <constraint firstItem="3Mi-R0-klz" firstAttribute="leading" secondItem="MCY-ay-OBe" secondAttribute="trailing" constant="193" id="SBQ-81-goQ"/>
+                                    <constraint firstItem="TWq-wM-emn" firstAttribute="top" secondItem="kg3-EM-ZvT" secondAttribute="bottom" constant="15" id="Vn6-sH-wcv"/>
+                                    <constraint firstItem="Gmu-HG-KrB" firstAttribute="top" secondItem="fol-P7-wtG" secondAttribute="bottom" constant="12" id="WZP-3U-3Yj"/>
+                                    <constraint firstItem="3Mi-R0-klz" firstAttribute="leading" secondItem="N9Q-yg-yOU" secondAttribute="leading" id="XQA-gc-Qwl"/>
+                                    <constraint firstItem="yDX-KG-N2g" firstAttribute="leading" secondItem="2Co-jf-YTz" secondAttribute="leading" id="YBg-oZ-8tu"/>
+                                    <constraint firstItem="yDX-KG-N2g" firstAttribute="top" secondItem="cMJ-YQ-bMz" secondAttribute="bottom" constant="12" id="Zcm-1U-gOq"/>
+                                    <constraint firstItem="8e8-om-pKK" firstAttribute="top" secondItem="KMK-VL-yMh" secondAttribute="top" id="a0J-9c-Utb"/>
+                                    <constraint firstItem="8e8-om-pKK" firstAttribute="leading" secondItem="AYA-Bi-USQ" secondAttribute="leading" id="a6p-uD-oCP"/>
+                                    <constraint firstItem="kxu-42-3CL" firstAttribute="top" secondItem="cMJ-YQ-bMz" secondAttribute="top" id="byH-9g-fQp"/>
+                                    <constraint firstItem="MCY-ay-OBe" firstAttribute="leading" secondItem="gA3-Qx-6Ov" secondAttribute="leading" constant="34" id="euF-6t-Y7g"/>
+                                    <constraint firstItem="MCY-ay-OBe" firstAttribute="top" secondItem="gA3-Qx-6Ov" secondAttribute="top" constant="20" id="hLP-UZ-jTF"/>
+                                    <constraint firstItem="kg3-EM-ZvT" firstAttribute="top" secondItem="KMK-VL-yMh" secondAttribute="bottom" constant="23" id="hcu-al-1pN"/>
+                                    <constraint firstItem="AYA-Bi-USQ" firstAttribute="leading" secondItem="N9Q-yg-yOU" secondAttribute="trailing" constant="14" id="iw6-RN-2i6"/>
+                                    <constraint firstItem="L6P-Tw-oY4" firstAttribute="top" secondItem="fol-P7-wtG" secondAttribute="top" id="jED-bK-13x"/>
+                                    <constraint firstItem="L6P-Tw-oY4" firstAttribute="leading" secondItem="w6M-TK-qRl" secondAttribute="leading" id="jVZ-db-y1c"/>
+                                    <constraint firstItem="Od4-dH-ed9" firstAttribute="leading" secondItem="I4V-Pm-wtH" secondAttribute="leading" id="tuS-1u-c9k"/>
+                                    <constraint firstItem="ltD-RL-if2" firstAttribute="top" secondItem="Gmu-HG-KrB" secondAttribute="bottom" constant="12" id="uK7-Ti-2fg"/>
+                                    <constraint firstItem="wr6-vH-1HD" firstAttribute="leading" secondItem="AYA-Bi-USQ" secondAttribute="leading" id="uha-BL-BoA"/>
+                                    <constraint firstItem="uOz-VW-Df0" firstAttribute="leading" secondItem="AYA-Bi-USQ" secondAttribute="leading" id="uqb-zu-VMX"/>
+                                    <constraint firstItem="2cf-uH-TyO" firstAttribute="leading" secondItem="kxu-42-3CL" secondAttribute="leading" id="uso-70-SDm"/>
+                                    <constraint firstItem="2Co-jf-YTz" firstAttribute="top" secondItem="yDX-KG-N2g" secondAttribute="bottom" constant="12" id="vl7-Ld-A4E"/>
+                                    <constraint firstItem="Gmu-HG-KrB" firstAttribute="leading" secondItem="ltD-RL-if2" secondAttribute="leading" id="vme-A6-6nE"/>
+                                    <constraint firstItem="wr6-vH-1HD" firstAttribute="top" secondItem="Od4-dH-ed9" secondAttribute="top" id="xNZ-Fm-eUH"/>
+                                    <constraint firstItem="2Co-jf-YTz" firstAttribute="leading" secondItem="BZL-eO-aep" secondAttribute="leading" id="yA1-KK-zo9"/>
+                                    <constraint firstItem="3Mi-R0-klz" firstAttribute="top" secondItem="MCY-ay-OBe" secondAttribute="top" id="yBi-MZ-BhM"/>
+                                    <constraint firstItem="I4V-Pm-wtH" firstAttribute="top" secondItem="Od4-dH-ed9" secondAttribute="bottom" constant="12" id="z7R-Iu-psG"/>
+                                    <constraint firstItem="Od4-dH-ed9" firstAttribute="top" secondItem="N9Q-yg-yOU" secondAttribute="bottom" constant="12" id="zSC-4m-Zid"/>
+                                    <constraint firstItem="fol-P7-wtG" firstAttribute="leading" secondItem="Gmu-HG-KrB" secondAttribute="leading" id="zaK-T0-Hzv"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="audioDuration" destination="S2j-Ix-S1u" id="EHr-WI-oJu"/>
+                                    <outlet property="audioEncode" destination="L6P-Tw-oY4" id="Lzx-3b-gag"/>
+                                    <outlet property="bitrate" destination="2cf-uH-TyO" id="giM-3O-k4j"/>
+                                    <outlet property="channel" destination="Jbh-Nv-9BR" id="s06-fs-j2t"/>
+                                    <outlet property="decode" destination="wr6-vH-1HD" id="WIt-zn-xLc"/>
+                                    <outlet property="duration" destination="BhE-rS-a8f" id="S02-ne-ScN"/>
+                                    <outlet property="format" destination="kxu-42-3CL" id="RCx-Pe-a83"/>
+                                    <outlet property="frameRate" destination="uOz-VW-Df0" id="wht-w9-Thg"/>
+                                    <outlet property="metadata" destination="mTX-bs-gFq" id="Qnb-RT-vvx"/>
+                                    <outlet property="pixel" destination="AYA-Bi-USQ" id="PXa-mf-xuQ"/>
+                                    <outlet property="sampleRate" destination="w6M-TK-qRl" id="HcQ-o5-eES"/>
+                                    <outlet property="size" destination="8e8-om-pKK" id="4Sh-JU-9Bx"/>
+                                </connections>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pDf-Jk-vJw" secondAttribute="trailing" constant="20" id="Coj-Ao-wRm"/>
                             <constraint firstItem="dXe-vV-cLU" firstAttribute="leading" secondItem="DOf-IH-X12" secondAttribute="trailing" constant="27" id="DbD-GI-oID"/>
+                            <constraint firstItem="pDf-Jk-vJw" firstAttribute="leading" secondItem="iZF-go-aXp" secondAttribute="trailing" constant="22" id="Egc-NU-mlg"/>
+                            <constraint firstItem="wC3-FV-DrO" firstAttribute="top" secondItem="gJh-Hg-vWW" secondAttribute="top" id="H74-9g-puC"/>
+                            <constraint firstItem="gA3-Qx-6Ov" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="SsM-xS-4CA"/>
                             <constraint firstAttribute="bottom" secondItem="dXe-vV-cLU" secondAttribute="bottom" constant="31" id="Vqe-SV-zqZ"/>
+                            <constraint firstItem="gJh-Hg-vWW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="28" id="XcK-3T-n9V"/>
+                            <constraint firstItem="gJh-Hg-vWW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="b7T-yJ-VLP"/>
+                            <constraint firstItem="wC3-FV-DrO" firstAttribute="leading" secondItem="gJh-Hg-vWW" secondAttribute="trailing" constant="20" id="bJd-7E-UaM"/>
                             <constraint firstAttribute="bottom" secondItem="DOf-IH-X12" secondAttribute="bottom" constant="20" id="cqT-LW-P6A"/>
                             <constraint firstAttribute="trailing" secondItem="dXe-vV-cLU" secondAttribute="trailing" constant="34" id="gXL-nb-usf"/>
+                            <constraint firstItem="gA3-Qx-6Ov" firstAttribute="top" secondItem="wC3-FV-DrO" secondAttribute="bottom" constant="28" id="iCF-Ja-Kdi"/>
+                            <constraint firstItem="iZF-go-aXp" firstAttribute="top" secondItem="wC3-FV-DrO" secondAttribute="top" id="juh-yP-kHF"/>
                             <constraint firstItem="DOf-IH-X12" firstAttribute="leading" secondItem="aHx-gF-05a" secondAttribute="trailing" constant="18" id="kQF-fS-3Wg"/>
+                            <constraint firstAttribute="trailing" secondItem="gA3-Qx-6Ov" secondAttribute="trailing" id="ooM-09-eLO"/>
+                            <constraint firstItem="iZF-go-aXp" firstAttribute="leading" secondItem="wC3-FV-DrO" secondAttribute="trailing" constant="21" id="p00-8i-YUZ"/>
+                            <constraint firstItem="pDf-Jk-vJw" firstAttribute="top" secondItem="iZF-go-aXp" secondAttribute="top" id="vCo-na-ZMj"/>
                             <constraint firstItem="aHx-gF-05a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="vz7-73-yJa"/>
                             <constraint firstAttribute="bottom" secondItem="aHx-gF-05a" secondAttribute="bottom" constant="20" id="yaO-dY-beA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fileUrl" destination="wC3-FV-DrO" id="Wbh-i0-OJo"/>
+                        <outlet property="paramView" destination="gA3-Qx-6Ov" id="YeS-fX-QRd"/>
                         <outlet property="playButton" destination="aHx-gF-05a" id="pqe-Lo-fED"/>
                         <outlet property="progress" destination="dXe-vV-cLU" id="dtE-2g-g5g"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223.5" y="622"/>
+            <point key="canvasLocation" x="-223.5" y="926.5"/>
         </scene>
         <!--Frames View Controller-->
         <scene sceneID="CAb-4s-o4j">
@@ -806,7 +1120,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Yny-yU-rf3" viewBased="YES" id="zvO-2m-35B">
-                                            <rect key="frame" x="0.0" y="0.0" width="449" height="402"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="402"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -911,7 +1225,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="119" minWidth="10" maxWidth="3.4028234663852886e+38" id="yAJ-hd-7vT">
+                                                <tableColumn width="118" minWidth="10" maxWidth="3.4028234663852886e+38" id="yAJ-hd-7vT">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="            PTS">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -925,11 +1239,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="PTS" id="fbd-Lv-3PV">
-                                                            <rect key="frame" x="328" y="1" width="119" height="17"/>
+                                                            <rect key="frame" x="328" y="1" width="118" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYT-Ap-RfM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="q8O-EF-r3Q">
                                                                         <font key="font" metaFont="system"/>
@@ -953,7 +1267,7 @@
                                     </subviews>
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="plZ-w8-eML">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="plZ-w8-eML">
                                     <rect key="frame" x="1" y="411" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -962,7 +1276,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="Yny-yU-rf3">
-                                    <rect key="frame" x="0.0" y="0.0" width="449" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="448" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>

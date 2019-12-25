@@ -11,6 +11,8 @@ import AppKit
 
 class ViewController: NSViewController {
 
+    
+    @IBOutlet weak var paramView: ParamView!
     @IBOutlet weak var fileUrl: NSTextField!
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var progress: NSProgressIndicator!

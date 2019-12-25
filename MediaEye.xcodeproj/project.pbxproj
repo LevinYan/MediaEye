@@ -12,6 +12,7 @@
 		558F999D238E1A6A00D8DCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F999C238E1A6A00D8DCE1 /* Assets.xcassets */; };
 		558F99A0238E1A6A00D8DCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558F999E238E1A6A00D8DCE1 /* Main.storyboard */; };
 		558F9A52238E7CF400D8DCE1 /* ffplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 558F9A51238E7CF400D8DCE1 /* ffplay.c */; };
+		5593B36F23B2422000407CD9 /* ParamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B36E23B2422000407CD9 /* ParamView.swift */; };
 		55B611CB23AA62A600D9DEFD /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B611CA23AA62A600D9DEFD /* StoryboardUtil.swift */; };
 		55C4DC6723AA3E42009B28FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6623AA3E42009B28FD /* ViewController.swift */; };
 		55C4DC6923AA3EF5009B28FD /* FramesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */; };
@@ -77,6 +78,7 @@
 		558F99A1238E1A6A00D8DCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558F99A2238E1A6A00D8DCE1 /* MediaEye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediaEye.entitlements; sourceTree = "<group>"; };
 		558F9A51238E7CF400D8DCE1 /* ffplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffplay.c; sourceTree = "<group>"; };
+		5593B36E23B2422000407CD9 /* ParamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamView.swift; sourceTree = "<group>"; };
 		55B611CA23AA62A600D9DEFD /* StoryboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
 		55C4DC6623AA3E42009B28FD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				55C4DC6A23AA5447009B28FD /* Util */,
 				55C4DC6623AA3E42009B28FD /* ViewController.swift */,
 				55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */,
+				5593B36E23B2422000407CD9 /* ParamView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				558F9999238E1A6800D8DCE1 /* AppDelegate.swift in Sources */,
 				553D179423A0E6AD00949B83 /* Player.swift in Sources */,
 				55C4DC6923AA3EF5009B28FD /* FramesViewController.swift in Sources */,
+				5593B36F23B2422000407CD9 /* ParamView.swift in Sources */,
 				558F9A52238E7CF400D8DCE1 /* ffplay.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
