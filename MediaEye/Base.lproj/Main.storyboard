@@ -1062,13 +1062,13 @@
                                     <outlet property="bitrate" destination="2cf-uH-TyO" id="giM-3O-k4j"/>
                                     <outlet property="channel" destination="Jbh-Nv-9BR" id="s06-fs-j2t"/>
                                     <outlet property="decode" destination="wr6-vH-1HD" id="WIt-zn-xLc"/>
-                                    <outlet property="duration" destination="BhE-rS-a8f" id="S02-ne-ScN"/>
                                     <outlet property="format" destination="kxu-42-3CL" id="RCx-Pe-a83"/>
                                     <outlet property="frameRate" destination="uOz-VW-Df0" id="wht-w9-Thg"/>
                                     <outlet property="metadata" destination="mTX-bs-gFq" id="Qnb-RT-vvx"/>
                                     <outlet property="pixel" destination="AYA-Bi-USQ" id="PXa-mf-xuQ"/>
                                     <outlet property="sampleRate" destination="w6M-TK-qRl" id="HcQ-o5-eES"/>
                                     <outlet property="size" destination="8e8-om-pKK" id="4Sh-JU-9Bx"/>
+                                    <outlet property="videoDuration" destination="BhE-rS-a8f" id="YpU-ta-chE"/>
                                 </connections>
                             </customView>
                         </subviews>

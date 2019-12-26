@@ -23,7 +23,15 @@ class ParamView: NSView {
     @IBOutlet weak var audioDuration: NSTextField!
     @IBOutlet weak var channel: NSTextField!
 
-    override init(frame frameRect: NSRect) {
+    func update(format: AVFormatContext, videoStream: AVStream, audioStream: AVStream) {
+        
+        videoDuration.stringValue = " \( videoStream.duration / 1000)"
+        size.stringValue = "\(videoStream.codecpar.pointee.width)*\(videoStream.codecpar.pointee.height)"
+        sampleRate.stringValue = "\(audioStream.codecpar.pointee.sample_rate)"
+        audioDuration.stringValue = "\(audioStream.duration)"
+        channel.stringValue = "\(audioStream.codecpar.pointee.channels)"
+    }
+   override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
     
