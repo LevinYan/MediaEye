@@ -21,6 +21,7 @@ typedef enum FFP_State {
 typedef enum FFP_Event{
     
     FFP_Event_State = 0,
+    FFP_Event_OpenStream,
     FFP_Event_PushPacket,
     FFP_Event_PushFrame,
     
@@ -34,5 +35,7 @@ void FFP_eventNotify(notifyFunc func);
 int64_t FFP_duration(void);
 float FFP_progress(void);
 void FFP_eventLoop(void);
+AVFormatContext getFormatContext(void);
 AVStream getVideoStream(void);
+AVStream getAudioStream(void);
 #endif /* ffplay_h */

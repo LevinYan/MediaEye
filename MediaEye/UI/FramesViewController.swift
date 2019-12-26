@@ -70,7 +70,6 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
             let index = frames.count - 1 - row
             let frame = frames[index]
             let isKey = frame.pict_type == AV_PICTURE_TYPE_I
-            print("\(frame)")
             switch colum {
             case 0:
                 cell.textField?.stringValue = "\(index)"

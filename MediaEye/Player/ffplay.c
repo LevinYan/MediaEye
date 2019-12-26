@@ -2995,7 +2995,7 @@ static int read_thread(void *arg)
             goto fail;
         }
     }
-
+    callback(FFP_Event_OpenStream, ic);
     if (ic->pb)
         ic->pb->eof_reached = 0; // FIXME hack, ffplay maybe should not use avio_feof() to test for the end
 
@@ -3964,6 +3964,11 @@ void FFP_eventNotify(notifyFunc func)
 {
     callback = func;
 }
+AVFormatContext getFormatContext(void)
+{
+    return *(currentIs->ic);
+}
+
 AVStream getVideoStream()
 {
     AVStream stream;
@@ -3975,4 +3980,16 @@ AVStream getVideoStream()
       
     }
     return stream;
+}
+AVStream getAudioStream()
+{
+    AVStream stream;
+       AVFormatContext *ic = currentIs->ic;
+       for (int i = 0; i < ic->nb_streams; i++) {
+           AVStream *st = ic->streams[i];
+           if (st->codecpar->codec_type == AVMEDIA_TYPE_AUDIO)
+              stream = *st;
+         
+       }
+       return stream;
 }

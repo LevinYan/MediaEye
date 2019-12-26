@@ -23,6 +23,7 @@ class Player {
     }
     var videoStream: AVStream?
     var audioStream: AVStream?
+    var fmtContext: AVFormatContext?
     
     var packets = [AVPacket]()
     var videoFrames = [AVFrame]()
@@ -35,7 +36,9 @@ class Player {
     func play(url: String) {
         
         FFP_play(url)
+        fmtContext = getFormatContext()
         videoStream = getVideoStream()
+        audioStream = getAudioStream()
     }
    fileprivate func handleEvent(_ event: FFP_Event, data: UnsafeMutableRawPointer?) {
           
@@ -60,6 +63,10 @@ class Player {
             }
 
         }
+    case FFP_Event_OpenStream:
+        let opaquePtr = OpaquePointer(data)
+ 
+        
     default:
         print("")
         
