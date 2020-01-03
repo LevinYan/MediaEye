@@ -50,6 +50,18 @@ void probe(const char* filename)
                        stream->codecpar->codec_id, stream->index);
                continue;
            }
+        
+            AVCodecContext *codecContext = avcodec_alloc_context3(codec);
+          
+            err = avcodec_parameters_to_context(codecContext, stream->codecpar);
+            if (err < 0)
+             exit(1);
+            if (avcodec_open2(codecContext, codec, NULL) < 0) {
+              av_log(NULL, AV_LOG_WARNING, "Could not open codec for input stream %d\n",
+                     stream->index);
+              exit(1);
+            }
+
     }
 }
 
