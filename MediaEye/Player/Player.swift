@@ -34,7 +34,7 @@ class Player {
         registerEventHandler()
     }
     func play(url: String) {
-        
+        probe(url)
         FFP_play(url)
         fmtContext = getFormatContext()
         videoStream = getVideoStream()

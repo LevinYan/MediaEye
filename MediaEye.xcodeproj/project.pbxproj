@@ -23,7 +23,6 @@
 		55E7A822238EA6AD00E09F55 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; };
 		55E7A823238EA6B500E09F55 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55E7A826238EA71000E09F55 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A825238EA71000E09F55 /* libz.tbd */; };
-		55E7A854238FF1AC00E09F55 /* 1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A852238FCAB900E09F55 /* 1.MP4 */; };
 		55E7A856238FF25100E09F55 /* B.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A855238FF25100E09F55 /* B.MP4 */; };
 		55E7A859238FF50C00E09F55 /* test.flv in Resources */ = {isa = PBXBuildFile; fileRef = 55E7A858238FF50C00E09F55 /* test.flv */; };
 		55E7AC6923911C4900E09F55 /* ffmpeg.txt in Resources */ = {isa = PBXBuildFile; fileRef = 55E7ABCC23911C4800E09F55 /* ffmpeg.txt */; };
@@ -54,6 +53,7 @@
 		55E7AC8623911C9900E09F55 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7AC8523911C9900E09F55 /* libiconv.tbd */; };
 		55E7AC8823911CA000E09F55 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7AC8723911CA000E09F55 /* AVFoundation.framework */; };
 		55E7AC8A23911CC900E09F55 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7AC8923911CC900E09F55 /* libbz2.tbd */; };
+		55F62DDE23BB382A0007234B /* probe.c in Sources */ = {isa = PBXBuildFile; fileRef = 55F62DDD23BB382A0007234B /* probe.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +79,7 @@
 		558F99A2238E1A6A00D8DCE1 /* MediaEye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediaEye.entitlements; sourceTree = "<group>"; };
 		558F9A51238E7CF400D8DCE1 /* ffplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffplay.c; sourceTree = "<group>"; };
 		5593B36E23B2422000407CD9 /* ParamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamView.swift; sourceTree = "<group>"; };
+		5596A7B223BA235D00D5541F /* ffprobe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffprobe.c; sourceTree = "<group>"; };
 		55B611CA23AA62A600D9DEFD /* StoryboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
 		55C4DC6623AA3E42009B28FD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		55E7A821238EA6AD00E09F55 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		55E7A825238EA71000E09F55 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		55E7A836238F765600E09F55 /* ffplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffplay.h; sourceTree = "<group>"; };
-		55E7A852238FCAB900E09F55 /* 1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.MP4; sourceTree = "<group>"; };
 		55E7A853238FCB4C00E09F55 /* Swift-Objective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Objective.h"; sourceTree = "<group>"; };
 		55E7A855238FF25100E09F55 /* B.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = B.MP4; sourceTree = "<group>"; };
 		55E7A858238FF50C00E09F55 /* test.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.flv; sourceTree = "<group>"; };
@@ -250,6 +250,8 @@
 		55E7AC8523911C9900E09F55 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		55E7AC8723911CA000E09F55 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		55E7AC8923911CC900E09F55 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		55F62DDC23BB382A0007234B /* probe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = probe.h; sourceTree = "<group>"; };
+		55F62DDD23BB382A0007234B /* probe.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = probe.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,9 +318,12 @@
 		558F9A4F238E7CE200D8DCE1 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				5596A7B223BA235D00D5541F /* ffprobe.c */,
 				553D179323A0E6AD00949B83 /* Player.swift */,
 				558F9A51238E7CF400D8DCE1 /* ffplay.c */,
 				55E7A836238F765600E09F55 /* ffplay.h */,
+				55F62DDC23BB382A0007234B /* probe.h */,
+				55F62DDD23BB382A0007234B /* probe.c */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -340,7 +345,6 @@
 				558F999C238E1A6A00D8DCE1 /* Assets.xcassets */,
 				55E7A858238FF50C00E09F55 /* test.flv */,
 				55E7A855238FF25100E09F55 /* B.MP4 */,
-				55E7A852238FCAB900E09F55 /* 1.MP4 */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -701,7 +705,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55E7A854238FF1AC00E09F55 /* 1.MP4 in Resources */,
 				55E7AC7423911C4900E09F55 /* libswscale.version in Resources */,
 				55E7AC6C23911C4900E09F55 /* libswresample.pc in Resources */,
 				55E7AC7B23911C4900E09F55 /* libavfilter.pc in Resources */,
@@ -732,6 +735,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C4DC6723AA3E42009B28FD /* ViewController.swift in Sources */,
+				55F62DDE23BB382A0007234B /* probe.c in Sources */,
 				55C4DC6C23AA5464009B28FD /* ViewUtil.swift in Sources */,
 				55B611CB23AA62A600D9DEFD /* StoryboardUtil.swift in Sources */,
 				55C4DC7723AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m in Sources */,

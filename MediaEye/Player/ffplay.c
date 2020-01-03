@@ -3993,3 +3993,7 @@ AVStream getAudioStream()
        }
        return stream;
 }
+void FFP_open(const char *url)
+{
+    
+}

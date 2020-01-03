@@ -38,4 +38,5 @@ void FFP_eventLoop(void);
 AVFormatContext getFormatContext(void);
 AVStream getVideoStream(void);
 AVStream getAudioStream(void);
+void FFP_open(const char *url);
 #endif /* ffplay_h */

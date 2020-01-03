@@ -747,7 +747,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-gF-05a">
-                                <rect key="frame" x="25" y="20" width="40" height="40"/>
+                                <rect key="frame" x="16" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="H7s-1f-z9F"/>
                                     <constraint firstAttribute="width" constant="40" id="sjK-iN-7hD"/>
@@ -761,7 +761,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DOf-IH-X12">
-                                <rect key="frame" x="83" y="20" width="40" height="40"/>
+                                <rect key="frame" x="74" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IBx-fL-X6X"/>
                                     <constraint firstAttribute="width" constant="40" id="nuX-Xc-bQS"/>
@@ -774,9 +774,6 @@
                                     <action selector="play:" target="XfG-lQ-9wD" id="FtK-hw-5lq"/>
                                 </connections>
                             </button>
-                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
-                                <rect key="frame" x="150" y="30" width="359" height="20"/>
-                            </progressIndicator>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="gA3-Qx-6Ov" customClass="ParamView" customModule="MediaEye">
                                 <rect key="frame" x="0.0" y="127" width="543" height="407"/>
                                 <subviews>
@@ -1071,10 +1068,12 @@
                                     <outlet property="videoDuration" destination="BhE-rS-a8f" id="YpU-ta-chE"/>
                                 </connections>
                             </customView>
+                            <progressIndicator wantsLayer="YES" ambiguous="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
+                                <rect key="frame" x="156" y="30" width="387" height="20"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pDf-Jk-vJw" secondAttribute="trailing" constant="20" id="Coj-Ao-wRm"/>
-                            <constraint firstItem="dXe-vV-cLU" firstAttribute="leading" secondItem="DOf-IH-X12" secondAttribute="trailing" constant="27" id="DbD-GI-oID"/>
                             <constraint firstItem="pDf-Jk-vJw" firstAttribute="leading" secondItem="iZF-go-aXp" secondAttribute="trailing" constant="22" id="Egc-NU-mlg"/>
                             <constraint firstItem="wC3-FV-DrO" firstAttribute="top" secondItem="gJh-Hg-vWW" secondAttribute="top" id="H74-9g-puC"/>
                             <constraint firstItem="gA3-Qx-6Ov" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="SsM-xS-4CA"/>
@@ -1090,7 +1089,7 @@
                             <constraint firstAttribute="trailing" secondItem="gA3-Qx-6Ov" secondAttribute="trailing" id="ooM-09-eLO"/>
                             <constraint firstItem="iZF-go-aXp" firstAttribute="leading" secondItem="wC3-FV-DrO" secondAttribute="trailing" constant="21" id="p00-8i-YUZ"/>
                             <constraint firstItem="pDf-Jk-vJw" firstAttribute="top" secondItem="iZF-go-aXp" secondAttribute="top" id="vCo-na-ZMj"/>
-                            <constraint firstItem="aHx-gF-05a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="vz7-73-yJa"/>
+                            <constraint firstItem="aHx-gF-05a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="vz7-73-yJa"/>
                             <constraint firstAttribute="bottom" secondItem="aHx-gF-05a" secondAttribute="bottom" constant="20" id="yaO-dY-beA"/>
                         </constraints>
                     </view>
