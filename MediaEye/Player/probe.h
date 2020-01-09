@@ -18,6 +18,7 @@ typedef struct {
     int64_t duration;
     enum AVPixelFormat pixFormt;
     enum AVCodecID codeId;
+    int fps;
 }VideoParam;
 
 typedef struct {

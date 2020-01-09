@@ -72,11 +72,12 @@ int FFP_probe(const char* filename, MediaParam *mediaParam)
             mediaParam->videoParam.duration = stream->duration;
             mediaParam->videoParam.pixFormt = codecContext->pix_fmt;
             mediaParam->videoParam.codeId = stream->codecpar->codec_id;
-
+            mediaParam->videoParam.fps = av_q2d(stream->avg_frame_rate);
         }else if (stream->codecpar->codec_type == AVMEDIA_TYPE_AUDIO) {
             mediaParam->audioParam.channels = codecContext->channels;
             mediaParam->audioParam.duration = stream->duration;
             mediaParam->audioParam.codeId = stream->codecpar->codec_id;
+            mediaParam->audioParam.sampleRate = stream->codecpar->sample_rate;
         }
 
         if (err < 0)

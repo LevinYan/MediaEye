@@ -55,7 +55,7 @@ class ViewController: NSViewController {
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
         player?.probe(url: fileUrl!)
 
-        player?.play(url: fileUrl!)
+//        player?.play(url: fileUrl!)
         if let mediaParam = player?.mediaParam {
             paramView.update(mediaParam: mediaParam)
         }
