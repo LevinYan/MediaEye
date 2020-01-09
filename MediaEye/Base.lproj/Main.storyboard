@@ -778,8 +778,8 @@
                                 <rect key="frame" x="0.0" y="127" width="543" height="407"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-ay-OBe">
-                                        <rect key="frame" x="32" y="371" width="58" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="B9j-6G-pSP">
+                                        <rect key="frame" x="32" y="371" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="封装" id="B9j-6G-pSP">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -800,6 +800,13 @@
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <connections>
+                                            <binding destination="FMX-l6-Oqy" name="displayPatternValue1" keyPath="values.duration" id="q56-ib-ufo">
+                                                <dictionary key="options">
+                                                    <string key="NSDisplayPattern">%{value1}@</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yDX-KG-N2g">
                                         <rect key="frame" x="32" y="312" width="31" height="16"/>
@@ -850,15 +857,15 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Mi-R0-klz">
-                                        <rect key="frame" x="279" y="371" width="58" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="VqD-LT-ogr">
+                                        <rect key="frame" x="252" y="371" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="视频" id="VqD-LT-ogr">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N9Q-yg-yOU">
-                                        <rect key="frame" x="279" y="340" width="58" height="16"/>
+                                        <rect key="frame" x="252" y="340" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="输出像素" id="fDA-oV-Eot">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -866,7 +873,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AYA-Bi-USQ">
-                                        <rect key="frame" x="347" y="340" width="34" height="16"/>
+                                        <rect key="frame" x="320" y="340" width="34" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="pixel" id="kDd-Sz-m9A">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -874,7 +881,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Od4-dH-ed9">
-                                        <rect key="frame" x="279" y="312" width="58" height="16"/>
+                                        <rect key="frame" x="252" y="312" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="编码方式" id="tI8-iV-BcJ">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -882,7 +889,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I4V-Pm-wtH">
-                                        <rect key="frame" x="279" y="284" width="31" height="16"/>
+                                        <rect key="frame" x="252" y="284" width="31" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="帧率" id="p8e-2e-Iik">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -890,7 +897,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KMK-VL-yMh">
-                                        <rect key="frame" x="279" y="256" width="31" height="16"/>
+                                        <rect key="frame" x="252" y="256" width="31" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="宽高" id="wWm-bD-syb">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -898,7 +905,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-VW-Df0">
-                                        <rect key="frame" x="347" y="284" width="58" height="16"/>
+                                        <rect key="frame" x="320" y="284" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="nwQ-iI-u5s">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -906,7 +913,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8e8-om-pKK">
-                                        <rect key="frame" x="347" y="256" width="58" height="16"/>
+                                        <rect key="frame" x="320" y="256" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="31K-Gw-gcq">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -914,7 +921,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wr6-vH-1HD">
-                                        <rect key="frame" x="347" y="312" width="58" height="16"/>
+                                        <rect key="frame" x="320" y="312" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="cWQ-yC-sKX">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -922,15 +929,15 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kg3-EM-ZvT">
-                                        <rect key="frame" x="279" y="217" width="58" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="输入参数" id="Yyx-4m-4eQ">
+                                        <rect key="frame" x="252" y="217" width="31" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="音频" id="Yyx-4m-4eQ">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TWq-wM-emn">
-                                        <rect key="frame" x="279" y="186" width="44" height="16"/>
+                                        <rect key="frame" x="252" y="186" width="44" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="采样率" id="ePT-2x-Cco">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -938,7 +945,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6M-TK-qRl">
-                                        <rect key="frame" x="349" y="186" width="58" height="16"/>
+                                        <rect key="frame" x="322" y="186" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="ZzB-mn-895">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -946,7 +953,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fol-P7-wtG">
-                                        <rect key="frame" x="279" y="158" width="58" height="16"/>
+                                        <rect key="frame" x="252" y="158" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="编码方式" id="JhZ-gK-OUh">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -954,7 +961,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-HG-KrB">
-                                        <rect key="frame" x="279" y="130" width="31" height="16"/>
+                                        <rect key="frame" x="252" y="130" width="31" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="时长" id="pse-Ke-IIp">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -962,7 +969,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-RL-if2">
-                                        <rect key="frame" x="279" y="102" width="44" height="16"/>
+                                        <rect key="frame" x="252" y="102" width="44" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="声道数" id="V9w-lo-Cc7">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -970,7 +977,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-Ix-S1u">
-                                        <rect key="frame" x="349" y="130" width="58" height="16"/>
+                                        <rect key="frame" x="322" y="130" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="Ylf-jY-FHn">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -978,7 +985,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Nv-9BR">
-                                        <rect key="frame" x="349" y="102" width="58" height="16"/>
+                                        <rect key="frame" x="322" y="102" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="E8W-1Q-mDH">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -986,7 +993,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L6P-Tw-oY4">
-                                        <rect key="frame" x="349" y="158" width="58" height="16"/>
+                                        <rect key="frame" x="322" y="158" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="GHg-gw-c67">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1058,14 +1065,14 @@
                                     <outlet property="audioEncode" destination="L6P-Tw-oY4" id="Lzx-3b-gag"/>
                                     <outlet property="bitrate" destination="2cf-uH-TyO" id="giM-3O-k4j"/>
                                     <outlet property="channel" destination="Jbh-Nv-9BR" id="s06-fs-j2t"/>
-                                    <outlet property="decode" destination="wr6-vH-1HD" id="WIt-zn-xLc"/>
+                                    <outlet property="duration" destination="BhE-rS-a8f" id="l0U-K4-tYp"/>
                                     <outlet property="format" destination="kxu-42-3CL" id="RCx-Pe-a83"/>
                                     <outlet property="frameRate" destination="uOz-VW-Df0" id="wht-w9-Thg"/>
                                     <outlet property="metadata" destination="mTX-bs-gFq" id="Qnb-RT-vvx"/>
                                     <outlet property="pixel" destination="AYA-Bi-USQ" id="PXa-mf-xuQ"/>
                                     <outlet property="sampleRate" destination="w6M-TK-qRl" id="HcQ-o5-eES"/>
                                     <outlet property="size" destination="8e8-om-pKK" id="4Sh-JU-9Bx"/>
-                                    <outlet property="videoDuration" destination="BhE-rS-a8f" id="YpU-ta-chE"/>
+                                    <outlet property="videoEncode" destination="wr6-vH-1HD" id="9dv-ai-wSE"/>
                                 </connections>
                             </customView>
                             <progressIndicator wantsLayer="YES" ambiguous="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
@@ -1101,6 +1108,7 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="FMX-l6-Oqy"/>
             </objects>
             <point key="canvasLocation" x="-223.5" y="926.5"/>
         </scene>

@@ -24,7 +24,9 @@ static void print_error(const char *filename, int err)
     av_log(NULL, AV_LOG_ERROR, "print_error %s:error_code:%d, %s\n", filename,err, errbuf_ptr);
 }
 
-void probe(const char* filename)
+
+
+int FFP_probe(const char* filename, MediaParam *mediaParam)
 {
     AVFormatContext *fmt_ctx = NULL;
     AVDictionaryEntry *t = NULL;
@@ -37,31 +39,56 @@ void probe(const char* filename)
     if ((err = avformat_open_input(&fmt_ctx, filename,
                                    iformat, NULL)) < 0) {
          print_error(filename, err);
-         return ;
+         return -1;
     }
+    mediaParam->format = malloc(strlen(fmt_ctx->iformat->long_name) + 1);
+    strcpy(mediaParam->format, fmt_ctx->iformat->long_name);
+    
+    av_dump_format(fmt_ctx, 0, filename, 0);
+
+    err = avformat_find_stream_info(fmt_ctx, NULL);
+
+    mediaParam->bitRate = fmt_ctx->bit_rate/1024;
+    mediaParam->duration = (int)fmt_ctx->duration/1000;
     for (int i = 0; i < fmt_ctx->nb_streams; i++) {
-           AVStream *stream = fmt_ctx->streams[i];
-           AVCodec *codec;
+        AVStream *stream = fmt_ctx->streams[i];
+        AVCodec *codec;
 
-           codec = avcodec_find_decoder(stream->codecpar->codec_id);
-           if (!codec) {
-               av_log(NULL, AV_LOG_WARNING,
-                       "Unsupported codec with id %d for input stream %d\n",
-                       stream->codecpar->codec_id, stream->index);
-               continue;
-           }
-        
-            AVCodecContext *codecContext = avcodec_alloc_context3(codec);
-          
-            err = avcodec_parameters_to_context(codecContext, stream->codecpar);
-            if (err < 0)
-             exit(1);
-            if (avcodec_open2(codecContext, codec, NULL) < 0) {
-              av_log(NULL, AV_LOG_WARNING, "Could not open codec for input stream %d\n",
-                     stream->index);
-              exit(1);
-            }
+        codec = avcodec_find_decoder(stream->codecpar->codec_id);
+        if (!codec) {
+           av_log(NULL, AV_LOG_WARNING,
+                   "Unsupported codec with id %d for input stream %d\n",
+                   stream->codecpar->codec_id, stream->index);
+           continue;
+        }
+
+        AVCodecContext *codecContext = avcodec_alloc_context3(codec);
+        err = avcodec_parameters_to_context(codecContext, stream->codecpar);
+
+        if (stream->codecpar->codec_type ==  AVMEDIA_TYPE_VIDEO){
+            
+            mediaParam->videoParam.width = codecContext->width;
+            mediaParam->videoParam.height = codecContext->height;
+            mediaParam->videoParam.duration = stream->duration;
+            mediaParam->videoParam.pixFormt = codecContext->pix_fmt;
+            mediaParam->videoParam.codeId = stream->codecpar->codec_id;
+
+        }else if (stream->codecpar->codec_type == AVMEDIA_TYPE_AUDIO) {
+            mediaParam->audioParam.channels = codecContext->channels;
+            mediaParam->audioParam.duration = stream->duration;
+            mediaParam->audioParam.codeId = stream->codecpar->codec_id;
+        }
+
+        if (err < 0)
+         exit(1);
+        if (avcodec_open2(codecContext, codec, NULL) < 0) {
+          av_log(NULL, AV_LOG_WARNING, "Could not open codec for input stream %d\n",
+                 stream->index);
+          exit(1);
+        }
 
     }
+    
+    return 0;
 }
 

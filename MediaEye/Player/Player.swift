@@ -28,17 +28,26 @@ class Player {
     var packets = [AVPacket]()
     var videoFrames = [AVFrame]()
     var audioFrames = [AVFrame]()
+    var mediaParam: MediaParam?
     init() {
                 
         player = self
         registerEventHandler()
     }
     func play(url: String) {
-        probe(url)
+
         FFP_play(url)
         fmtContext = getFormatContext()
         videoStream = getVideoStream()
         audioStream = getAudioStream()
+    }
+    func probe(url: String){
+        
+        var mediaParam = MediaParam()
+        if FFP_probe(url, &mediaParam) == 0 {
+            self.mediaParam = mediaParam;
+        }
+        
     }
    fileprivate func handleEvent(_ event: FFP_Event, data: UnsafeMutableRawPointer?) {
           

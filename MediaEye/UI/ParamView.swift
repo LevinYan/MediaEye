@@ -10,7 +10,26 @@ import Cocoa
 
 class ParamView: NSView {
     
-    @IBOutlet weak var videoDuration: NSTextField!
+    let pixFormt = ["AV_PIX_FMT_NONE",
+                   "AV_PIX_FMT_YUV420P",
+                   "AV_PIX_FMT_YUYV422",
+                   "AV_PIX_FMT_RGB24",
+                   "AV_PIX_FMT_BGR24",
+                   "AV_PIX_FMT_YUV422P",
+                   "AV_PIX_FMT_YUV444P",
+                   "AV_PIX_FMT_YUV410P",
+                   "AV_PIX_FMT_YUV411P",
+                   "AV_PIX_FMT_GRAY8",
+                   "AV_PIX_FMT_MONOWHITE",
+                   "AV_PIX_FMT_MONOBLACK",
+                   "AV_PIX_FMT_PAL8",
+                   "AV_PIX_FMT_YUVJ420P",
+                   "AV_PIX_FMT_YUVJ422P",
+                   "AV_PIX_FMT_YUVJ444P",
+                   "AV_PIX_FMT_UYVY422"]
+    let codecString = [AV_CODEC_ID_H264.rawValue: ".H264",
+                       AV_CODEC_ID_HEVC.rawValue: ".H265",
+                       AV_CODEC_ID_AAC.rawValue: "AAC"]
     @IBOutlet weak var format: NSTextField!
     @IBOutlet weak var bitrate: NSTextField!
     @IBOutlet weak var metadata: NSTextField!
@@ -22,14 +41,20 @@ class ParamView: NSView {
     @IBOutlet weak var audioEncode: NSTextField!
     @IBOutlet weak var audioDuration: NSTextField!
     @IBOutlet weak var channel: NSTextField!
+    @IBOutlet weak var duration: NSTextField!
 
-    func update(format: AVFormatContext, videoStream: AVStream, audioStream: AVStream) {
+    func update(mediaParam: MediaParam) {
         
-        videoDuration.stringValue = " \( videoStream.duration / 1000)"
-        size.stringValue = "\(videoStream.codecpar.pointee.width)*\(videoStream.codecpar.pointee.height)"
-        sampleRate.stringValue = "\(audioStream.codecpar.pointee.sample_rate)"
-        audioDuration.stringValue = "\(audioStream.duration)"
-        channel.stringValue = "\(audioStream.codecpar.pointee.channels)"
+        format.stringValue = "\(String(cString:mediaParam.format))"
+        duration.stringValue = " \( Double(mediaParam.duration) / 1000.0)秒"
+        size.stringValue = "\(mediaParam.videoParam.width)*\(mediaParam.videoParam.height)"
+//        sampleRate.stringValue = "\(audioStream.codecpar.pointee.sample_rate)"
+        audioDuration.stringValue = "\(mediaParam.audioParam.duration)"
+        channel.stringValue = "\(mediaParam.audioParam.channels)"
+        pixel.stringValue = "\(pixFormt[Int(mediaParam.videoParam.pixFormt.rawValue + 1)])"
+        videoEncode.stringValue = codecString[mediaParam.videoParam.codeId.rawValue] ?? ""
+        audioEncode.stringValue = codecString[mediaParam.audioParam.codeId.rawValue] ?? ""
+        bitrate.stringValue = "\(mediaParam.bitRate)kb/s"
     }
    override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

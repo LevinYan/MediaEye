@@ -53,8 +53,12 @@ class ViewController: NSViewController {
     @IBAction func play(_ sender: Any) {
         
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
+        player?.probe(url: fileUrl!)
+
         player?.play(url: fileUrl!)
-        paramView.update(format: player!.fmtContext!, videoStream: player!.videoStream!, audioStream: player!.audioStream!)
+        if let mediaParam = player?.mediaParam {
+            paramView.update(mediaParam: mediaParam)
+        }
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             self.updateProgress()
             FFP_eventLoop()
