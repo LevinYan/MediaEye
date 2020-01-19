@@ -45,7 +45,13 @@ class ViewController: NSViewController {
         openPanel.canChooseFiles = true
         openPanel.begin { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
-                self.fileUrl.stringValue = openPanel.url?.absoluteString ?? ""
+                
+                let fileUrl = openPanel.url?.absoluteString ?? ""
+                self.fileUrl.stringValue = fileUrl
+                self.player?.probe(url: fileUrl)
+                if let mediaParam = self.player?.mediaParam {
+                    self.paramView.update(mediaParam: mediaParam)
+                }
             }
         }
     }
@@ -53,12 +59,8 @@ class ViewController: NSViewController {
     @IBAction func play(_ sender: Any) {
         
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
-        player?.probe(url: fileUrl!)
+        player?.play(url: fileUrl!)
 
-//        player?.play(url: fileUrl!)
-        if let mediaParam = player?.mediaParam {
-            paramView.update(mediaParam: mediaParam)
-        }
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             self.updateProgress()
             FFP_eventLoop()

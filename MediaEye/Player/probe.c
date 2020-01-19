@@ -47,7 +47,21 @@ int FFP_probe(const char* filename, MediaParam *mediaParam)
     av_dump_format(fmt_ctx, 0, filename, 0);
 
     err = avformat_find_stream_info(fmt_ctx, NULL);
+    mediaParam->metaData = "";
+    while( (t = av_dict_get(fmt_ctx->metadata,"",t,AV_DICT_IGNORE_SUFFIX)) != NULL){
+            
+        char *old = mediaParam->metaData;
+        char *new = calloc(100, 1);
+        
+        mediaParam->metaData = calloc(strlen(old) + 1 + strlen(t->key) + 1 + 1 +  strlen(t->value) + 1 + 1,sizeof(char));
+        sprintf(new, "\n%s:\n%s\n", t->key, t->value);
+        
+        strcat(mediaParam->metaData, old);
+        strcat(mediaParam->metaData, new);
 
+
+    }
+    
     mediaParam->bitRate = fmt_ctx->bit_rate/1024;
     mediaParam->duration = (int)fmt_ctx->duration/1000;
     for (int i = 0; i < fmt_ctx->nb_streams; i++) {

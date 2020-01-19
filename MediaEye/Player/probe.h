@@ -34,6 +34,7 @@ typedef struct {
 typedef struct {
     
     char* format;
+    char* metaData;
     int duration;
     int64_t bitRate;
     VideoParam videoParam;

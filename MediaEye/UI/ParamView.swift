@@ -56,6 +56,7 @@ class ParamView: NSView {
         videoEncode.stringValue = codecString[mediaParam.videoParam.codeId.rawValue] ?? ""
         audioEncode.stringValue = codecString[mediaParam.audioParam.codeId.rawValue] ?? ""
         bitrate.stringValue = "\(mediaParam.bitRate)kb/s"
+        metadata.stringValue = "\(String(cString:mediaParam.metaData))"
     }
    override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

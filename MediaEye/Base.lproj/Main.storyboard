@@ -840,14 +840,6 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mTX-bs-gFq">
-                                        <rect key="frame" x="100" y="256" width="64" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="metadata" id="etf-zV-qfe">
-                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhE-rS-a8f">
                                         <rect key="frame" x="100" y="312" width="58" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="封装格式" id="Vzk-0z-p5A">
@@ -1000,10 +992,17 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mTX-bs-gFq">
+                                        <rect key="frame" x="32" y="236" width="64" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="metadata" id="etf-zV-qfe">
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="I4V-Pm-wtH" firstAttribute="leading" secondItem="KMK-VL-yMh" secondAttribute="leading" id="1yB-PD-S5M"/>
-                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="leading" secondItem="kxu-42-3CL" secondAttribute="leading" id="5Va-x2-Ufa"/>
                                     <constraint firstItem="N9Q-yg-yOU" firstAttribute="leading" secondItem="Od4-dH-ed9" secondAttribute="leading" id="5de-Yc-0K1"/>
                                     <constraint firstItem="S2j-Ix-S1u" firstAttribute="top" secondItem="Gmu-HG-KrB" secondAttribute="top" id="5gT-bk-Yc8"/>
                                     <constraint firstItem="KMK-VL-yMh" firstAttribute="top" secondItem="I4V-Pm-wtH" secondAttribute="bottom" constant="12" id="8QG-Qh-k2I"/>
@@ -1014,7 +1013,6 @@
                                     <constraint firstItem="Jbh-Nv-9BR" firstAttribute="leading" secondItem="w6M-TK-qRl" secondAttribute="leading" id="BWm-U9-lNX"/>
                                     <constraint firstItem="N9Q-yg-yOU" firstAttribute="top" secondItem="3Mi-R0-klz" secondAttribute="bottom" constant="15" id="C3D-bX-dmj"/>
                                     <constraint firstItem="kg3-EM-ZvT" firstAttribute="leading" secondItem="KMK-VL-yMh" secondAttribute="leading" id="C8b-eZ-uBA"/>
-                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="top" secondItem="BZL-eO-aep" secondAttribute="top" id="D6p-b0-pjr"/>
                                     <constraint firstItem="BhE-rS-a8f" firstAttribute="leading" secondItem="kxu-42-3CL" secondAttribute="leading" id="DuB-W8-JP9"/>
                                     <constraint firstItem="MCY-ay-OBe" firstAttribute="leading" secondItem="cMJ-YQ-bMz" secondAttribute="leading" id="EiL-02-Y7P"/>
                                     <constraint firstItem="2cf-uH-TyO" firstAttribute="top" secondItem="2Co-jf-YTz" secondAttribute="top" id="Fub-gD-Le0"/>
@@ -1022,6 +1020,7 @@
                                     <constraint firstItem="cMJ-YQ-bMz" firstAttribute="top" secondItem="MCY-ay-OBe" secondAttribute="bottom" constant="15" id="HKh-R1-gAF"/>
                                     <constraint firstItem="kxu-42-3CL" firstAttribute="leading" secondItem="cMJ-YQ-bMz" secondAttribute="trailing" constant="14" id="Jqf-jf-Jeu"/>
                                     <constraint firstAttribute="height" constant="407" id="KPP-me-yWf"/>
+                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="firstBaseline" secondItem="BZL-eO-aep" secondAttribute="baseline" constant="20" id="Kbc-HJ-UBX"/>
                                     <constraint firstItem="AYA-Bi-USQ" firstAttribute="top" secondItem="N9Q-yg-yOU" secondAttribute="top" id="Kw6-Pp-YQd"/>
                                     <constraint firstItem="fol-P7-wtG" firstAttribute="top" secondItem="TWq-wM-emn" secondAttribute="bottom" constant="12" id="LsR-YF-MRA"/>
                                     <constraint firstItem="w6M-TK-qRl" firstAttribute="top" secondItem="TWq-wM-emn" secondAttribute="top" id="MUs-7q-0Mq"/>
@@ -1046,6 +1045,7 @@
                                     <constraint firstItem="AYA-Bi-USQ" firstAttribute="leading" secondItem="N9Q-yg-yOU" secondAttribute="trailing" constant="14" id="iw6-RN-2i6"/>
                                     <constraint firstItem="L6P-Tw-oY4" firstAttribute="top" secondItem="fol-P7-wtG" secondAttribute="top" id="jED-bK-13x"/>
                                     <constraint firstItem="L6P-Tw-oY4" firstAttribute="leading" secondItem="w6M-TK-qRl" secondAttribute="leading" id="jVZ-db-y1c"/>
+                                    <constraint firstItem="mTX-bs-gFq" firstAttribute="leading" secondItem="BZL-eO-aep" secondAttribute="leading" id="n5m-w4-MN3"/>
                                     <constraint firstItem="Od4-dH-ed9" firstAttribute="leading" secondItem="I4V-Pm-wtH" secondAttribute="leading" id="tuS-1u-c9k"/>
                                     <constraint firstItem="ltD-RL-if2" firstAttribute="top" secondItem="Gmu-HG-KrB" secondAttribute="bottom" constant="12" id="uK7-Ti-2fg"/>
                                     <constraint firstItem="wr6-vH-1HD" firstAttribute="leading" secondItem="AYA-Bi-USQ" secondAttribute="leading" id="uha-BL-BoA"/>
