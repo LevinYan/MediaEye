@@ -67,6 +67,18 @@ class ParamView: NSView {
     }
     override func awakeFromNib() {
         
+    format.stringValue = ""
+    duration.stringValue = ""
+    size.stringValue = ""
+    frameRate.stringValue = ""
+    sampleRate.stringValue = ""
+    audioDuration.stringValue = ""
+    channel.stringValue = ""
+    pixel.stringValue = ""
+    videoEncode.stringValue = ""
+    audioEncode.stringValue = ""
+    bitrate.stringValue = ""
+    metadata.stringValue = ""
     }
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
