@@ -12,6 +12,8 @@ import AppKit
 class ViewController: NSViewController {
 
     
+    @IBOutlet weak var duration: NSTextFieldCell!
+    @IBOutlet weak var progressTime: NSTextField!
     @IBOutlet weak var paramView: ParamView!
     @IBOutlet weak var fileUrl: NSTextField!
     @IBOutlet weak var playButton: NSButton!
@@ -25,7 +27,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         self.player = Player()
-        
+        playButton.isEnabled = false
+        loadLastFileUrl()
        
         // Do any additional setup after loading the view.
     }
@@ -47,20 +50,36 @@ class ViewController: NSViewController {
             if result == NSApplication.ModalResponse.OK {
                 
                 let fileUrl = openPanel.url?.absoluteString ?? ""
-                self.fileUrl.stringValue = fileUrl
-                self.player?.probe(url: fileUrl)
-                if let mediaParam = self.player?.mediaParam {
-                    self.paramView.update(mediaParam: mediaParam)
-                }
+                self.probeFile(fileUrl)
+                self.saveLastFileUrl(fileUrl)
             }
         }
     }
-    
+    private func probeFile(_ fileUrl: String)  {
+        
+        self.fileUrl.stringValue = fileUrl
+        self.player?.probe(url: fileUrl)
+        if let mediaParam = self.player?.mediaParam {
+        self.paramView.update(mediaParam: mediaParam)
+        }
+        playButton.isEnabled = true
+    }
+    private func saveLastFileUrl(_ fileUrl: String) {
+        
+        UserDefaults.standard.set(fileUrl, forKey: "LastFileUrlKey")
+    }
+    private func loadLastFileUrl() {
+        
+        if let _fileUrl = UserDefaults.standard.string(forKey: "LastFileUrlKey") {
+            fileUrl.stringValue = _fileUrl
+            probeFile(_fileUrl)
+        }
+    }
     @IBAction func play(_ sender: Any) {
         
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
         player?.play(url: fileUrl!)
-
+        duration.stringValue = "\(player?.mediaParam?.duration ?? 0)"
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             self.updateProgress()
             FFP_eventLoop()

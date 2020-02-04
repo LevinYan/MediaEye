@@ -1097,20 +1097,41 @@
                                     <outlet property="videoEncode" destination="wr6-vH-1HD" id="9dv-ai-wSE"/>
                                 </connections>
                             </customView>
-                            <progressIndicator wantsLayer="YES" ambiguous="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
-                                <rect key="frame" x="156" y="30" width="387" height="20"/>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-vV-cLU">
+                                <rect key="frame" x="156" y="30" width="353" height="20"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nif-vo-gWN">
+                                <rect key="frame" x="156" y="7" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="owv-61-lMc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHL-4v-XoX">
+                                <rect key="frame" x="474" y="7" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BYK-8L-gGp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pDf-Jk-vJw" secondAttribute="trailing" constant="20" id="Coj-Ao-wRm"/>
+                            <constraint firstItem="dXe-vV-cLU" firstAttribute="leading" secondItem="DOf-IH-X12" secondAttribute="trailing" constant="42" id="Eea-ZP-13e"/>
                             <constraint firstItem="pDf-Jk-vJw" firstAttribute="leading" secondItem="iZF-go-aXp" secondAttribute="trailing" constant="22" id="Egc-NU-mlg"/>
                             <constraint firstItem="wC3-FV-DrO" firstAttribute="top" secondItem="gJh-Hg-vWW" secondAttribute="top" id="H74-9g-puC"/>
+                            <constraint firstItem="Nif-vo-gWN" firstAttribute="leading" secondItem="dXe-vV-cLU" secondAttribute="leading" constant="2" id="NJA-3j-3Yl"/>
+                            <constraint firstItem="XHL-4v-XoX" firstAttribute="trailing" secondItem="dXe-vV-cLU" secondAttribute="trailing" id="Ros-pD-DNj"/>
                             <constraint firstItem="gA3-Qx-6Ov" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="SsM-xS-4CA"/>
                             <constraint firstAttribute="bottom" secondItem="dXe-vV-cLU" secondAttribute="bottom" constant="31" id="Vqe-SV-zqZ"/>
                             <constraint firstItem="gJh-Hg-vWW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="28" id="XcK-3T-n9V"/>
+                            <constraint firstItem="Nif-vo-gWN" firstAttribute="top" secondItem="dXe-vV-cLU" secondAttribute="bottom" constant="8" id="aPY-58-e24"/>
                             <constraint firstItem="gJh-Hg-vWW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="25" id="b7T-yJ-VLP"/>
                             <constraint firstItem="wC3-FV-DrO" firstAttribute="leading" secondItem="gJh-Hg-vWW" secondAttribute="trailing" constant="20" id="bJd-7E-UaM"/>
                             <constraint firstAttribute="bottom" secondItem="DOf-IH-X12" secondAttribute="bottom" constant="20" id="cqT-LW-P6A"/>
+                            <constraint firstItem="XHL-4v-XoX" firstAttribute="centerY" secondItem="Nif-vo-gWN" secondAttribute="centerY" id="eNp-ei-hFC"/>
                             <constraint firstAttribute="trailing" secondItem="dXe-vV-cLU" secondAttribute="trailing" constant="34" id="gXL-nb-usf"/>
                             <constraint firstItem="gA3-Qx-6Ov" firstAttribute="top" secondItem="wC3-FV-DrO" secondAttribute="bottom" constant="28" id="iCF-Ja-Kdi"/>
                             <constraint firstItem="iZF-go-aXp" firstAttribute="top" secondItem="wC3-FV-DrO" secondAttribute="top" id="juh-yP-kHF"/>
@@ -1123,10 +1144,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="duration" destination="BYK-8L-gGp" id="pLv-e4-9U1"/>
                         <outlet property="fileUrl" destination="wC3-FV-DrO" id="Wbh-i0-OJo"/>
                         <outlet property="paramView" destination="gA3-Qx-6Ov" id="YeS-fX-QRd"/>
                         <outlet property="playButton" destination="aHx-gF-05a" id="pqe-Lo-fED"/>
                         <outlet property="progress" destination="dXe-vV-cLU" id="dtE-2g-g5g"/>
+                        <outlet property="progressTime" destination="Nif-vo-gWN" id="dNt-q3-yLt"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1157,7 +1180,7 @@
                                             <tableColumns>
                                                 <tableColumn width="111" minWidth="40" maxWidth="1000" id="Lkp-hg-IdL">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="             帧数">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1190,7 +1213,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="99" minWidth="10" maxWidth="3.4028234663852886e+38" id="H2q-3a-qRQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="        类型">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -1223,7 +1246,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="108" minWidth="10" maxWidth="3.4028234663852886e+38" id="Med-O5-5Ue">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="       码流顺序">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -1256,7 +1279,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="118" minWidth="10" maxWidth="3.4028234663852886e+38" id="yAJ-hd-7vT">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="            PTS">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
