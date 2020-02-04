@@ -26,7 +26,11 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.player = Player()
+        self.player = Player(eventNotify: { (event) in
+            
+            self.updateProgress()
+
+        })
         playButton.isEnabled = false
         loadLastFileUrl()
        
@@ -79,22 +83,22 @@ class ViewController: NSViewController {
         
         let fileUrl = Bundle.main.path(forResource: "B", ofType: "MP4")
         player?.play(url: fileUrl!)
-        duration.stringValue = "\(player?.mediaParam?.duration ?? 0)"
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
-            self.updateProgress()
-            FFP_eventLoop()
-
+        if let _duration = player?.mediaParam?.duration {
+            duration.stringValue = String(format: "%0.1f秒", Double(_duration)/1000.0)
         }
+
         framesWindows = NSWindow(contentRect: NSRect(x: self.view.window!.frame.origin.x + self.view.window!.frame.size.width + 100, y: self.view.window!.frame.origin.y, width: 400, height: 600), styleMask: [.borderless, .titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
         framewsVc = NSStoryboard.loadViewController("FramesViewController") as? FramesViewController
         framesWindows?.contentViewController = framewsVc
         framesWindows?.orderFront(nil)
 
         framewsVc?.player = player
+
     }
     func updateProgress() {
-        
-        progress.doubleValue = Double(FFP_progress()*100);
+    
+        progress.doubleValue = Double(self.player!.progress*100)
+        progressTime.stringValue = String(format: "%0.1f秒", self.player!.progress * Float(self.player!.mediaParam!.duration)/1000.0)
     }
 }
 

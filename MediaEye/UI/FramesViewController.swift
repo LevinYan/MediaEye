@@ -67,6 +67,7 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
         let colum = tableView.tableColumns.firstIndex(of: tableColumn!)!
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentify[colum]), owner: nil) as? NSTableCellView {
             
+            cell.wantsLayer = true
             let index = frames.count - 1 - row
             let frame = frames[index]
             let isKey = frame.pict_type == AV_PICTURE_TYPE_I
@@ -91,7 +92,7 @@ class FramesViewController: NSViewController, NSTableViewDataSource, NSTableView
             }
             
             cell.textField?.alignment = .center
-            cell.layer?.backgroundColor = isKey ? NSColor.red.cgColor : NSColor.black.cgColor
+            cell.layer?.backgroundColor = isKey ? NSColor.red.cgColor : NSColor.white.cgColor
         return cell
         }
         return nil

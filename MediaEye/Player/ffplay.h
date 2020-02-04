@@ -23,7 +23,10 @@ typedef enum FFP_Event{
     FFP_Event_State = 0,
     FFP_Event_OpenStream,
     FFP_Event_PushPacket,
-    FFP_Event_PushFrame,
+    FFP_Event_PushVideoFrame,
+    FFP_Event_PushAudioFrame,
+    FFP_Event_RenderFrame,
+    FFP_Event_Complete,
     
 }FFP_Event;
     

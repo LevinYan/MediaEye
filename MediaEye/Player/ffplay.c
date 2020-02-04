@@ -70,7 +70,7 @@ const int program_birth_year = 2003;
 
 /* Minimum SDL audio buffer size, in samples. */
 #define SDL_AUDIO_MIN_BUFFER_SIZE 512
-/* Calculate actual buffer size keeping in mind not cause too frequent audio callbacks */
+/* Calculate actual buffer size keeping in mind not cause too frequent audionotifyEvents */
 #define SDL_AUDIO_MAX_CALLBACKS_PER_SEC 30
 
 /* Step size for volume control in dB */
@@ -162,7 +162,7 @@ typedef struct PacketQueue {
     SDL_mutex *mutex;
     SDL_cond *cond;
 } PacketQueue;
-static notifyFunc callback;
+static notifyFunc notifyEvent;
 #define VIDEO_PICTURE_QUEUE_SIZE 3
 #define SUBPICTURE_QUEUE_SIZE 16
 #define SAMPLE_QUEUE_SIZE 9
@@ -615,9 +615,8 @@ static int packet_queue_put_private(PacketQueue *q, AVPacket *pkt)
     /* XXX: should duplicate packet data in DV case */
     SDL_CondSignal(q->cond);
     
-    if (callback){
-        callback(FFP_Event_PushPacket, pkt);
-    }
+    notifyEvent(FFP_Event_PushPacket, pkt);
+    
     return 0;
 }
 
@@ -940,7 +939,6 @@ static Frame *frame_queue_peek_readable(FrameQueue *f)
         return NULL;
 
     Frame *frame = &f->queue[(f->rindex + f->rindex_shown) % f->max_size];
-    callback(FFP_Event_PushFrame, frame->frame);
     return frame;
 }
 
@@ -1135,7 +1133,7 @@ static void video_image_display(VideoState *is)
     SDL_Rect rect;
 
     vp = frame_queue_peek_last(&is->pictq);
-    callback(FFP_Event_PushFrame, vp->frame);
+   notifyEvent(FFP_Event_RenderFrame, vp->frame);
     if (is->subtitle_st) {
         if (frame_queue_nb_remaining(&is->subpq) > 0) {
             sp = frame_queue_peek(&is->subpq);
@@ -1937,6 +1935,8 @@ static int queue_picture(VideoState *is, AVFrame *src_frame, double pts, double 
 
     av_frame_move_ref(vp->frame, src_frame);
     frame_queue_push(&is->pictq);
+    notifyEvent(FFP_Event_PushVideoFrame, vp->frame);
+
     return 0;
 }
 
@@ -2522,6 +2522,7 @@ static int audio_decode_frame(VideoState *is)
         if (!(af = frame_queue_peek_readable(&is->sampq)))
             return -1;
         frame_queue_next(&is->sampq);
+        notifyEvent(FFP_Event_PushAudioFrame, af->frame);
     } while (af->serial != is->audioq.serial);
 
     data_size = av_samples_get_buffer_size(NULL, af->frame->channels,
@@ -2995,7 +2996,7 @@ static int read_thread(void *arg)
             goto fail;
         }
     }
-    callback(FFP_Event_OpenStream, ic);
+   notifyEvent(FFP_Event_OpenStream, ic);
     if (ic->pb)
         ic->pb->eof_reached = 0; // FIXME hack, ffplay maybe should not use avio_feof() to test for the end
 
@@ -3180,9 +3181,12 @@ static int read_thread(void *arg)
             (!is->video_st || (is->viddec.finished == is->videoq.serial && frame_queue_nb_remaining(&is->pictq) == 0))) {
             if (loop != 1 && (!loop || --loop)) {
                 stream_seek(is, start_time != AV_NOPTS_VALUE ? start_time : 0, 0, 0);
-            } else if (autoexit) {
-                ret = AVERROR_EOF;
-                goto fail;
+            } else {
+                if (autoexit) {
+                    ret = AVERROR_EOF;
+                    goto fail;
+                }
+               notifyEvent(FFP_Event_Complete, NULL);
             }
         }
         ret = av_read_frame(ic, pkt);
@@ -3962,7 +3966,7 @@ int FFP_play(const char *url)
 }
 void FFP_eventNotify(notifyFunc func)
 {
-    callback = func;
+   notifyEvent = func;
 }
 AVFormatContext getFormatContext(void)
 {
