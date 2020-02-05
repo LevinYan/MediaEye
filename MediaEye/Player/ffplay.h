@@ -34,6 +34,8 @@ typedef void (*notifyFunc)(FFP_Event event, void *msg);
 int FFP_play(const char *url);
 void FFP_pause(void);
 void FFP_stop(void);
+void FFP_seek(int ms);
+void FFP_destory();
 void FFP_eventNotify(notifyFunc func);
 int64_t FFP_duration(void);
 float FFP_progress(void);

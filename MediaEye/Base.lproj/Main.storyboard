@@ -717,6 +717,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="inputTextChange:" target="XfG-lQ-9wD" id="8Px-mx-OxF"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-Hg-vWW">
                                 <rect key="frame" x="23" y="567" width="48" height="16"/>
@@ -752,7 +755,7 @@
                                     <constraint firstAttribute="height" constant="40" id="H7s-1f-z9F"/>
                                     <constraint firstAttribute="width" constant="40" id="sjK-iN-7hD"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fpn-vx-hJY">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="play" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fpn-vx-hJY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -766,12 +769,12 @@
                                     <constraint firstAttribute="height" constant="40" id="IBx-fL-X6X"/>
                                     <constraint firstAttribute="width" constant="40" id="nuX-Xc-bQS"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="restart" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Ze-tJ-zyv">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="restart" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Ze-tJ-zyv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="play:" target="XfG-lQ-9wD" id="FtK-hw-5lq"/>
+                                    <action selector="replay:" target="XfG-lQ-9wD" id="D7t-fD-tMs"/>
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="gA3-Qx-6Ov" customClass="ParamView" customModule="MediaEye">
@@ -1101,16 +1104,16 @@
                                 <rect key="frame" x="156" y="30" width="353" height="20"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nif-vo-gWN">
-                                <rect key="frame" x="156" y="7" width="37" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="owv-61-lMc">
+                                <rect key="frame" x="156" y="7" width="13" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="owv-61-lMc">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHL-4v-XoX">
-                                <rect key="frame" x="474" y="7" width="37" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BYK-8L-gGp">
+                                <rect key="frame" x="498" y="7" width="13" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="BYK-8L-gGp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1150,6 +1153,7 @@
                         <outlet property="playButton" destination="aHx-gF-05a" id="pqe-Lo-fED"/>
                         <outlet property="progress" destination="dXe-vV-cLU" id="dtE-2g-g5g"/>
                         <outlet property="progressTime" destination="Nif-vo-gWN" id="dNt-q3-yLt"/>
+                        <outlet property="replayButton" destination="DOf-IH-X12" id="mDY-rk-Ipq"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1180,7 +1184,7 @@
                                             <tableColumns>
                                                 <tableColumn width="111" minWidth="40" maxWidth="1000" id="Lkp-hg-IdL">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="             帧数">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1213,7 +1217,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="99" minWidth="10" maxWidth="3.4028234663852886e+38" id="H2q-3a-qRQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="        类型">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -1246,7 +1250,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="108" minWidth="10" maxWidth="3.4028234663852886e+38" id="Med-O5-5Ue">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="       码流顺序">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -1279,7 +1283,7 @@
                                                 </tableColumn>
                                                 <tableColumn width="118" minWidth="10" maxWidth="3.4028234663852886e+38" id="yAJ-hd-7vT">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="            PTS">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>

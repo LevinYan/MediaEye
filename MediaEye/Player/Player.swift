@@ -55,12 +55,31 @@ class Player {
     }
     func play(url: String) {
 
+        if state == .idle {
+            innerPlay(url)
+        } else {
+            FFP_destory();
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (_) in
+                self.innerPlay(url)
+            }
+        }
+
+    }
+    func innerPlay(_ url: String) {
+       
         FFP_play(url)
         fmtContext = getFormatContext()
         videoStream = getVideoStream()
         audioStream = getAudioStream()
         state = .play
     }
+    func pause() {
+        FFP_pause()
+    }
+    func replay() {
+        FFP_seek(0)
+    }
+    
     func probe(url: String){
         
         var mediaParam = MediaParam()

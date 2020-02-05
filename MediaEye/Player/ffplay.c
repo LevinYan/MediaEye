@@ -388,7 +388,7 @@ static char *afilters = NULL;
 #endif
 static int autorotate = 1;
 static int find_stream_info = 1;
-
+static SDL_Thread *read_thread_id = NULL;
 /* current context */
 static int is_full_screen;
 static int64_t audio_callback_time;
@@ -1468,7 +1468,7 @@ static void do_exit(VideoState *is)
         printf("\n");
     SDL_Quit();
     av_log(NULL, AV_LOG_QUIET, "%s", "");
-    exit(0);
+//    exit(0);
 }
 
 static void sigterm_handler(int sig)
@@ -3400,13 +3400,14 @@ static int refresh_thread(void *arg)
 {
     VideoState *is = currentIs;
     double remaining_time = 0.0;
-      while (1) {
+      while (!is->abort_request) {
             if (remaining_time > 0.0)
                 av_usleep((unsigned)(remaining_time * 1000000.0));
             remaining_time = REFRESH_RATE;
-            if (is->show_mode != SHOW_MODE_NONE && (!is->paused || is->force_refresh))
+            if (is->show_mode != SHOW_MODE_NONE && (!is->paused || is->force_refresh) && !is->abort_request)
                 video_refresh(is, &remaining_time);
         }
+    return 0;
 }
 static void seek_chapter(VideoState *is, int incr)
 {
@@ -3442,6 +3443,15 @@ void FFP_stop()
 {
     
 }
+void FFP_seek(int ms)
+{
+     int64_t start_time = currentIs->ic->start_time;
+     int64_t seek_pos = milliseconds_to_fftime(ms);
+     if (start_time > 0 && start_time != AV_NOPTS_VALUE)
+        seek_pos += start_time;
+    stream_seek(currentIs, seek_pos, 0, 0);
+}
+
 int64_t FFP_duration()
 {
     return currentIs == NULL || currentIs->ic == NULL ? 0: fftime_to_milliseconds(currentIs->ic->duration) ;
@@ -3880,9 +3890,15 @@ static int lockmgr(void **mtx, enum AVLockOp op)
    return 1;
 }
 
+void FFP_destory()
+{
+    do_exit(currentIs);
+}
 /* Called from the main */
 int FFP_play(const char *url)
 {
+    window = NULL;
+    renderer = NULL;
     int flags;
     VideoState *is;
 
@@ -3958,8 +3974,8 @@ int FFP_play(const char *url)
            video_open(is);
     
     currentIs = is;
-    SDL_CreateThread(refresh_thread, "read_thread", NULL);
-
+     read_thread_id = SDL_CreateThread(refresh_thread, "read_thread", NULL);
+ 
     /* never returns */
 
     return 0;
