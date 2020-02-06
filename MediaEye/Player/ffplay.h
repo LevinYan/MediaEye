@@ -27,6 +27,7 @@ typedef enum FFP_Event{
     FFP_Event_PushAudioFrame,
     FFP_Event_RenderFrame,
     FFP_Event_Complete,
+    FFP_Event_WindowClose,
     
 }FFP_Event;
     
@@ -39,7 +40,6 @@ void FFP_destory();
 void FFP_eventNotify(notifyFunc func);
 int64_t FFP_duration(void);
 float FFP_progress(void);
-void FFP_eventLoop(void);
 AVFormatContext getFormatContext(void);
 AVStream getVideoStream(void);
 AVStream getAudioStream(void);

@@ -73,7 +73,7 @@ class ViewController: NSViewController {
         openPanel.begin { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
                 
-                let fileUrl = openPanel.url?.absoluteString ?? ""
+                let fileUrl = (openPanel.url?.absoluteString ?? "").removingPercentEncoding!
                 self.probeFile(fileUrl)
                 self.saveLastFileUrl(fileUrl)
             }
@@ -113,7 +113,7 @@ class ViewController: NSViewController {
        framesWindows?.contentViewController = framewsVc
        framesWindows?.orderFront(nil)
         
-        let _fileUrl = fileUrl.stringValue
+        let _fileUrl = fileUrl.stringValue.removingPercentEncoding!
         player.play(url: _fileUrl)
     }
     @IBAction func play(_ sender: Any) {
@@ -132,7 +132,7 @@ class ViewController: NSViewController {
     func updateProgress() {
     
         progress.doubleValue = Double(self.player!.progress*100)
-        progressTime.stringValue = String(format: "%0.1f秒", self.player!.progress * Float(self.player!.mediaParam!.duration)/1000.0)
+        progressTime.stringValue = String(format: "%0.1f秒", self.player!.progress * Float(self.player?.mediaParam?.duration ?? 0)/1000.0)
     }
 }
 

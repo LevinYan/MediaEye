@@ -17,7 +17,7 @@ class Player {
         case state, progress
     }
     enum State {
-        case idle, play, pause, complete
+        case idle, play, pause, quit, complete
     }
     static let VideoFrameNotification = "VideoFrameNotification"
     static let PacketNotification = "PacketNotification"
@@ -55,7 +55,7 @@ class Player {
     }
     func play(url: String) {
 
-        if state == .idle {
+        if state == .idle || state == .quit {
             innerPlay(url)
         } else {
             FFP_destory();
@@ -72,6 +72,7 @@ class Player {
         videoStream = getVideoStream()
         audioStream = getAudioStream()
         state = .play
+
     }
     func pause() {
         FFP_pause()
@@ -119,7 +120,9 @@ class Player {
  
     case FFP_Event_Complete:
         state = .complete
-        
+    
+    case FFP_Event_WindowClose:
+        state = .quit
     default:
         print("")
         
