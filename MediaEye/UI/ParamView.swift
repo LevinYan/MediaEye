@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ParamView: NSView {
+class ParamView: NSTextView {
     
     let pixFormt = ["AV_PIX_FMT_NONE",
                    "AV_PIX_FMT_YUV420P",
@@ -30,33 +30,35 @@ class ParamView: NSView {
     let codecString = [AV_CODEC_ID_H264.rawValue: ".H264",
                        AV_CODEC_ID_HEVC.rawValue: ".H265",
                        AV_CODEC_ID_AAC.rawValue: "AAC"]
-    @IBOutlet weak var format: NSTextField!
-    @IBOutlet weak var bitrate: NSTextField!
-    @IBOutlet weak var metadata: NSTextField!
-    @IBOutlet weak var pixel: NSTextField!
-    @IBOutlet weak var videoEncode: NSTextField!
-    @IBOutlet weak var frameRate: NSTextField!
-    @IBOutlet weak var size: NSTextField!
-    @IBOutlet weak var sampleRate: NSTextField!
-    @IBOutlet weak var audioEncode: NSTextField!
-    @IBOutlet weak var audioDuration: NSTextField!
-    @IBOutlet weak var channel: NSTextField!
-    @IBOutlet weak var duration: NSTextField!
+
 
     func update(mediaParam: MediaParam) {
         
-        format.stringValue = "\(String(cString:mediaParam.format))"
-        duration.stringValue = " \( Double(mediaParam.duration) / 1000.0)秒"
-        size.stringValue = "\(mediaParam.videoParam.width)*\(mediaParam.videoParam.height)"
-        frameRate.stringValue = "\(mediaParam.videoParam.fps)fps"
-        sampleRate.stringValue = "\(mediaParam.audioParam.sampleRate)HZ"
-        audioDuration.stringValue = "\(mediaParam.audioParam.duration)"
-        channel.stringValue = "\(mediaParam.audioParam.channels)"
-        pixel.stringValue = "\(pixFormt[Int(mediaParam.videoParam.pixFormt.rawValue + 1)])"
-        videoEncode.stringValue = codecString[mediaParam.videoParam.codeId.rawValue] ?? ""
-        audioEncode.stringValue = codecString[mediaParam.audioParam.codeId.rawValue] ?? ""
-        bitrate.stringValue = "\(mediaParam.bitRate)kb/s"
-        metadata.stringValue = "\(String(cString:mediaParam.metaData))"
+        let fmtParam =    "封装\n"
+                        + "封装格式:\(String(cString:mediaParam.format))\n"
+                        + "时长：\( Double(mediaParam.duration) / 1000.0)秒\n"
+                        + "比特率: \(mediaParam.bitRate)kb/s\n"
+                        + "metedata: \(String(cString:mediaParam.metaData))\n"
+                        + "\n"
+        
+        let videoParam =  "视频\n"
+                        +   "像素：\(pixFormt[Int(mediaParam.videoParam.pixFormt.rawValue + 1)])\n"
+                        + "编码：\(codecString[mediaParam.videoParam.codeId.rawValue] ?? "")\n"
+                        + "帧率：\(mediaParam.videoParam.fps)fps\n"
+                        + "宽高: \(mediaParam.videoParam.width)*\(mediaParam.videoParam.height)\n"
+                        + "metedata: \(String(cString:mediaParam.videoParam.metadata))\n"
+                        + "\n"
+
+        let audioParam = "音频\n"
+                        + "采样率：\(mediaParam.audioParam.sampleRate)HZ\n"
+                        + "编码： \(codecString[mediaParam.audioParam.codeId.rawValue] ?? "")\n"
+                        + "时长： \(mediaParam.audioParam.duration)\n"
+                        + "声道：\(mediaParam.audioParam.channels)\n"
+                        + "metedata: \(String(cString:mediaParam.audioParam.metadata))\n"
+                        + "\n"
+
+
+        string = (  fmtParam  + videoParam + audioParam)
     }
    override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -67,18 +69,7 @@ class ParamView: NSView {
     }
     override func awakeFromNib() {
         
-    format.stringValue = ""
-    duration.stringValue = ""
-    size.stringValue = ""
-    frameRate.stringValue = ""
-    sampleRate.stringValue = ""
-    audioDuration.stringValue = ""
-    channel.stringValue = ""
-    pixel.stringValue = ""
-    videoEncode.stringValue = ""
-    audioEncode.stringValue = ""
-    bitrate.stringValue = ""
-    metadata.stringValue = ""
+    
     }
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

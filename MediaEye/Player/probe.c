@@ -35,7 +35,7 @@ static char *getMetadata(AVDictionary *metadata)
         char *old = ret;
         char *new = calloc(100, 1);
         ret = calloc(strlen(old) + 1 + strlen(t->key) + 1 + 1 +  strlen(t->value) + 1 + 1,sizeof(char));
-        sprintf(new, "\n%s:\n%s\n", t->key, t->value);
+        sprintf(new, "\n%s:\n%s", t->key, t->value);
 
         strcat(ret, old);
         strcat(ret, new);
