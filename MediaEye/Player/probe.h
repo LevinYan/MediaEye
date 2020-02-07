@@ -19,6 +19,7 @@ typedef struct {
     enum AVPixelFormat pixFormt;
     enum AVCodecID codeId;
     int fps;
+    char *metadata;
 }VideoParam;
 
 typedef struct {
@@ -27,6 +28,7 @@ typedef struct {
     int sampleRate;
     int64_t duration;
     enum AVCodecID codeId;
+    char *metadata;
 
 
 }AudioParam;

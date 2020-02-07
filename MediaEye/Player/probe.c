@@ -25,7 +25,23 @@ static void print_error(const char *filename, int err)
 }
 
 
+static char *getMetadata(AVDictionary *metadata)
+{
+    AVDictionaryEntry *t = NULL;
+    char *ret = "";
+    
+    while( (t = av_dict_get(metadata,"",t,AV_DICT_IGNORE_SUFFIX)) != NULL){
+            
+        char *old = ret;
+        char *new = calloc(100, 1);
+        ret = calloc(strlen(old) + 1 + strlen(t->key) + 1 + 1 +  strlen(t->value) + 1 + 1,sizeof(char));
+        sprintf(new, "\n%s:\n%s\n", t->key, t->value);
 
+        strcat(ret, old);
+        strcat(ret, new);
+    }
+    return ret;
+}
 int FFP_probe(const char* filename, MediaParam *mediaParam)
 {
     AVFormatContext *fmt_ctx = NULL;
@@ -47,21 +63,8 @@ int FFP_probe(const char* filename, MediaParam *mediaParam)
     av_dump_format(fmt_ctx, 0, filename, 0);
 
     err = avformat_find_stream_info(fmt_ctx, NULL);
-    mediaParam->metaData = "";
-    while( (t = av_dict_get(fmt_ctx->metadata,"",t,AV_DICT_IGNORE_SUFFIX)) != NULL){
-            
-        char *old = mediaParam->metaData;
-        char *new = calloc(100, 1);
-        
-        mediaParam->metaData = calloc(strlen(old) + 1 + strlen(t->key) + 1 + 1 +  strlen(t->value) + 1 + 1,sizeof(char));
-        sprintf(new, "\n%s:\n%s\n", t->key, t->value);
-        
-        strcat(mediaParam->metaData, old);
-        strcat(mediaParam->metaData, new);
+    mediaParam->metaData = getMetadata(fmt_ctx->metadata);
 
-
-    }
-    
     mediaParam->bitRate = fmt_ctx->bit_rate/1024;
     mediaParam->duration = (int)fmt_ctx->duration/1000;
     for (int i = 0; i < fmt_ctx->nb_streams; i++) {
@@ -87,11 +90,14 @@ int FFP_probe(const char* filename, MediaParam *mediaParam)
             mediaParam->videoParam.pixFormt = codecContext->pix_fmt;
             mediaParam->videoParam.codeId = stream->codecpar->codec_id;
             mediaParam->videoParam.fps = av_q2d(stream->avg_frame_rate);
+            mediaParam->videoParam.metadata = getMetadata(stream->metadata);
+            
         }else if (stream->codecpar->codec_type == AVMEDIA_TYPE_AUDIO) {
             mediaParam->audioParam.channels = codecContext->channels;
             mediaParam->audioParam.duration = stream->duration;
             mediaParam->audioParam.codeId = stream->codecpar->codec_id;
             mediaParam->audioParam.sampleRate = stream->codecpar->sample_rate;
+            mediaParam->audioParam.metadata = getMetadata(stream->metadata);
         }
 
         if (err < 0)

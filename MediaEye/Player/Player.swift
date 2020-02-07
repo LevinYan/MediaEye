@@ -41,7 +41,7 @@ class Player {
     var videoFrames = [AVFrame]()
     var audioFrames = [AVFrame]()
     var mediaParam: MediaParam?
-    
+
     init(eventNotify: @escaping ((Event)->Void)) {
 
         self.eventNotify = eventNotify
@@ -68,9 +68,6 @@ class Player {
     func innerPlay(_ url: String) {
        
         FFP_play(url)
-        fmtContext = getFormatContext()
-        videoStream = getVideoStream()
-        audioStream = getAudioStream()
         state = .play
 
     }
@@ -89,6 +86,7 @@ class Player {
         }
         
     }
+
    fileprivate func handleEvent(_ event: FFP_Event, data: UnsafeMutableRawPointer?) {
           
     switch event {
@@ -116,8 +114,10 @@ class Player {
         self.progress = FFP_progress()
         
     case FFP_Event_OpenStream:
-        let opaquePtr = OpaquePointer(data)
- 
+        fmtContext = getFormatContext()
+        videoStream = getVideoStream()
+        audioStream = getAudioStream()
+        
     case FFP_Event_Complete:
         state = .complete
     
