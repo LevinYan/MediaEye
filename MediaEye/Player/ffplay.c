@@ -47,6 +47,8 @@
 #include "libavcodec/avfft.h"
 #include "libswresample/swresample.h"
 
+#define CONFIG_AVFILTER 1
+
 #if CONFIG_AVFILTER
 # include "libavfilter/avfilter.h"
 # include "libavfilter/buffersink.h"
@@ -395,6 +397,7 @@ static int64_t audio_callback_time;
 
 static AVPacket flush_pkt;
 
+static AVDictionary *swr_opts;
 #define FF_QUIT_EVENT    (SDL_USEREVENT + 2)
 
 static SDL_Window *window;
@@ -507,7 +510,7 @@ double get_rotation(AVStream *st)
                                                      AV_PKT_DATA_DISPLAYMATRIX, NULL);
     double theta = 0;
 
-    if (displaymatrix) {
+    if (displaymatrix && strlen(displaymatrix)) {
         theta = av_display_rotation_get((int32_t*) displaymatrix);
     } else {
         if (rotate_tag && *rotate_tag->value && strcmp(rotate_tag->value, "0")) {
@@ -2088,7 +2091,6 @@ static int configure_video_filters(AVFilterGraph *graph, VideoState *is, const c
 
     if (autorotate) {
         double theta  = get_rotation(is->video_st);
-
         if (fabs(theta - 90) < 1.0) {
             INSERT_FILT("transpose", "clock");
         } else if (fabs(theta - 180) < 1.0) {
