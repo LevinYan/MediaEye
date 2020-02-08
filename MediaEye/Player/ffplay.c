@@ -3976,11 +3976,10 @@ int FFP_play(const char *url)
         av_log(NULL, AV_LOG_FATAL, "Failed to initialize VideoState!\n");
         do_exit(NULL);
     }
+    currentIs = is;
     if (!window)
            video_open(is);
     
-    currentIs = is;
-     read_thread_id = SDL_CreateThread(refresh_thread, "read_thread", NULL);
  
     /* never returns */
     SDL_AddEventWatch(event_handler, NULL);
