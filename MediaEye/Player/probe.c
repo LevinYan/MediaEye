@@ -42,6 +42,24 @@ static char *getMetadata(AVDictionary *metadata)
     }
     return ret;
 }
+void printFrameType(uint8_t *data, int size, AVCodecContext *avctx, AVBitStreamFilterContext* h264bsfc){
+    
+    
+    uint8_t *outdata = (uint8_t*)malloc(size);
+    int outsize;
+    av_bitstream_filter_filter(h264bsfc, avctx, NULL, &outdata, &outsize, data, size, 0);
+
+    printf("packet ");
+    for(int i = 0; i < outsize - 4; i++){
+        
+        if(outdata[i] == 0x00 && outdata[i + 1] == 0x00 && outdata[i + 2] == 0x00 && outdata[i + 3] == 0x01){
+            printf("type %d ",outdata[i + 4] & 0x1f);
+        }
+    }
+    printf("\n");
+    free(outdata);
+
+}
 int FFP_probe(const char* filename, MediaParam *mediaParam)
 {
     AVFormatContext *fmt_ctx = NULL;
@@ -107,9 +125,31 @@ int FFP_probe(const char* filename, MediaParam *mediaParam)
                  stream->index);
           exit(1);
         }
+        
+        if (stream->codecpar->codec_type ==  AVMEDIA_TYPE_VIDEO){
+
+
+            AVPacket packet;
+            AVBitStreamFilterContext* h264bsfc =  av_bitstream_filter_init("h264_mp4toannexb");
+
+            while( av_read_frame(fmt_ctx, &packet) >= 0 ) {
+                if( packet.stream_index == 0 ) {
+                    printFrameType(packet.data, packet.size, codecContext, h264bsfc);
+
+
+//                    av_bitstream_filter_filter(h264bsfc, codecContext, NULL, &packet.data, &packet.size, packet.data, packet.size, 0);
+    //                fwrite(packet.data, packet.size, 1, fp);
+                }
+
+                av_free_packet(&packet);
+            }
+        }
+
 
     }
     
     return 0;
 }
+
+
 
