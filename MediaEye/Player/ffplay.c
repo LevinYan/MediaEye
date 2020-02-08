@@ -390,7 +390,6 @@ static char *afilters = NULL;
 #endif
 static int autorotate = 1;
 static int find_stream_info = 1;
-static SDL_Thread *read_thread_id = NULL;
 /* current context */
 static int is_full_screen;
 static int64_t audio_callback_time;
@@ -3252,6 +3251,7 @@ static VideoState *stream_open(const char *filename, AVInputFormat *iformat)
     VideoState *is;
 
     is = av_mallocz(sizeof(VideoState));
+    currentIs = is;
     if (!is)
         return NULL;
     is->filename = av_strdup(filename);
@@ -3976,11 +3976,10 @@ int FFP_play(const char *url)
         av_log(NULL, AV_LOG_FATAL, "Failed to initialize VideoState!\n");
         do_exit(NULL);
     }
-    currentIs = is;
     if (!window)
            video_open(is);
     
- 
+    SDL_CreateThread(refresh_thread, "refresh_thread", NULL);
     /* never returns */
     SDL_AddEventWatch(event_handler, NULL);
 
