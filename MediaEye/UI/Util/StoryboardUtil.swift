@@ -6,7 +6,7 @@
 //  Copyright © 2019 levinyang(杨亦伟). All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 extension NSStoryboard {
     

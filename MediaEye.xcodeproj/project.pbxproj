@@ -18,9 +18,6 @@
 		55C4DC6723AA3E42009B28FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6623AA3E42009B28FD /* ViewController.swift */; };
 		55C4DC6923AA3EF5009B28FD /* FramesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */; };
 		55C4DC6C23AA5464009B28FD /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC6B23AA5464009B28FD /* ViewUtil.swift */; };
-		55C4DC7723AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC7023AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m */; };
-		55C4DC7823AA5E06009B28FD /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC7323AA5E06009B28FD /* ALView+PureLayout.m */; };
-		55C4DC7923AA5E06009B28FD /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C4DC7623AA5E06009B28FD /* NSArray+PureLayout.m */; };
 		55E7A822238EA6AD00E09F55 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; };
 		55E7A823238EA6B500E09F55 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55E7A821238EA6AD00E09F55 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55E7A826238EA71000E09F55 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7A825238EA71000E09F55 /* libz.tbd */; };
@@ -86,15 +83,6 @@
 		55C4DC6623AA3E42009B28FD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55C4DC6823AA3EF5009B28FD /* FramesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesViewController.swift; sourceTree = "<group>"; };
 		55C4DC6B23AA5464009B28FD /* ViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
-		55C4DC6E23AA5E06009B28FD /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
-		55C4DC6F23AA5E06009B28FD /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
-		55C4DC7023AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
-		55C4DC7123AA5E06009B28FD /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
-		55C4DC7223AA5E06009B28FD /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
-		55C4DC7323AA5E06009B28FD /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
-		55C4DC7423AA5E06009B28FD /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
-		55C4DC7523AA5E06009B28FD /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
-		55C4DC7623AA5E06009B28FD /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
 		55E7A821238EA6AD00E09F55 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		55E7A825238EA71000E09F55 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		55E7A836238F765600E09F55 /* ffplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffplay.h; sourceTree = "<group>"; };
@@ -285,7 +273,6 @@
 		558F998C238E1A6800D8DCE1 = {
 			isa = PBXGroup;
 			children = (
-				55C4DC6D23AA5E06009B28FD /* PureLayout */,
 				55E7ABCA23911C4800E09F55 /* ffmpeg */,
 				558F9997238E1A6800D8DCE1 /* MediaEye */,
 				558F9996238E1A6800D8DCE1 /* Products */,
@@ -359,22 +346,6 @@
 				04C874C523E9110B0068B176 /* BorderView.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		55C4DC6D23AA5E06009B28FD /* PureLayout */ = {
-			isa = PBXGroup;
-			children = (
-				55C4DC6E23AA5E06009B28FD /* PureLayoutDefines.h */,
-				55C4DC6F23AA5E06009B28FD /* ALView+PureLayout.h */,
-				55C4DC7023AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m */,
-				55C4DC7123AA5E06009B28FD /* NSArray+PureLayout.h */,
-				55C4DC7223AA5E06009B28FD /* NSLayoutConstraint+PureLayout.h */,
-				55C4DC7323AA5E06009B28FD /* ALView+PureLayout.m */,
-				55C4DC7423AA5E06009B28FD /* PureLayout+Internal.h */,
-				55C4DC7523AA5E06009B28FD /* PureLayout.h */,
-				55C4DC7623AA5E06009B28FD /* NSArray+PureLayout.m */,
-			);
-			path = PureLayout;
 			sourceTree = "<group>";
 		};
 		55E7A824238EA71000E09F55 /* Frameworks */ = {
@@ -741,9 +712,6 @@
 				55F62DDE23BB382A0007234B /* probe.c in Sources */,
 				55C4DC6C23AA5464009B28FD /* ViewUtil.swift in Sources */,
 				55B611CB23AA62A600D9DEFD /* StoryboardUtil.swift in Sources */,
-				55C4DC7723AA5E06009B28FD /* NSLayoutConstraint+PureLayout.m in Sources */,
-				55C4DC7923AA5E06009B28FD /* NSArray+PureLayout.m in Sources */,
-				55C4DC7823AA5E06009B28FD /* ALView+PureLayout.m in Sources */,
 				558F9999238E1A6800D8DCE1 /* AppDelegate.swift in Sources */,
 				553D179423A0E6AD00949B83 /* Player.swift in Sources */,
 				55C4DC6923AA3EF5009B28FD /* FramesViewController.swift in Sources */,
